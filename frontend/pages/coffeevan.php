@@ -15,8 +15,6 @@ else {
 }
 
 echo '<link rel="stylesheet" type="text/css" href="../main.css">';
-// Order Table
-$ordertable = getOrders();
 // Tile: 1 & 2
 $today = getTodayTotal();
 // Tile: 3

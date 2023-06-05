@@ -85,15 +85,15 @@ function getTodayTotal() {
     pg_free_result($result);
     pg_close($db);
 }
-function getOrders() {
+function getOrdersCoffee() {
     if (!$authorise = checkAuthentication()) {
         return false;
     }
 
     $rawtime = time();
-    $date = $rawtime - 1800;
+    $date = $rawtime - 900;
     $db = dbConnect();
-    $query = "SELECT * FROM orders WHERE timeadded > $date ORDER BY timeadded DESC";
+    $query = "SELECT * FROM orders AS orders LEFT JOIN items AS items ON orders.type = items.itemid WHERE items.itemtype = 'coffee' AND orders.timeadded > $date ORDER BY orders.timeadded DESC";
     $result = pg_query($db, $query);
     if (!$result) {
         pg_free_result($result);
@@ -104,7 +104,7 @@ function getOrders() {
     $buildarray = array();
     while ($row = pg_fetch_assoc($result)) {
         $buildarray[] = array(
-            'type' => $row['type'],
+            'itemname' => $row['itemname'],
             'size' => $row['size'],
             'milk' => $row['milktype'],
             'shots' => $row['extrashots'],

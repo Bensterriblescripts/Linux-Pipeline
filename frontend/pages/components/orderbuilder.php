@@ -1,5 +1,6 @@
 <?php
-$ordertable = getOrders();
+// Get orders within the last 15 minutes
+$ordertable = getOrdersCoffee();
 echo '<tr>';
     echo '<td> Type </td>';
     echo '<td> Size </td>';
@@ -9,43 +10,8 @@ echo '<tr>';
 echo '</tr>';
 if (is_array($ordertable)) {
     foreach ($ordertable as $order) {
-        $rawtype = $order['type'];
+        $type = $order['itemname'];
         $rawsize = $order['size'];
-        $rawmilk = $order['milk'];
-        $rawshots = $order['shots'];
-        $rawtimeadded = $order['timeadded'];
-
-        // Get Coffee Type
-        if ($rawtype == 0) {
-            $type = 'Espresso';
-        }
-        else if ($rawtype == 1) {
-            $type = 'Long Black';
-        }
-        else if ($rawtype == 2) {
-            $type = 'Americano';
-        }
-        else if ($rawtype == 3) {
-            $type = 'Flat White';
-        }
-        else if ($rawtype == 4) {
-            $type = 'Latte';
-        }
-        else if ($rawtype == 5) {
-            $type = 'Iced Coffee';
-        }
-        else if ($rawtype == 6) {
-            $type = 'Cappuccino';
-        }
-        else if ($rawtype == 7) {
-            $type = 'Mochaccino';
-        }
-        else if ($rawtype == 8) {
-            $type = 'Hot Chocolate';
-        }
-        else {
-            $type = 'Error';
-        }
 
         // Get Size
         if ($rawsize == 0) {
@@ -62,23 +28,23 @@ if (is_array($ordertable)) {
         }
         
         // Milk
-        if ($rawmilk == 0) {
+        if ($order['milk'] == 0) {
             $milk = '';
         }
-        else if ($rawmilk == 1) {
+        else if ($order['milk'] >= 1) {
             $milk = 'Extra';
         }
 
         // Shots
-        if ($rawshots == 0) {
-            $shots = '';
+        if ($order['shots'] > 0) {
+            $shots = $order['shots'];
         }
-        else if ($rawshots > 0) {
-            $shots = $rawshots;
+        else {
+            $shots = '';
         }
 
         // Order Time
-        $ordertime = date('g:i a', $rawtimeadded);
+        $ordertime = date('g:i a', $order['timeadded']);
 
         echo '<tr>';
             echo '<td>'.$type.'</td>';
