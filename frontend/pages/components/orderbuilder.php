@@ -1,6 +1,8 @@
 <?php
+
 // Get orders within the last 15 minutes
 $ordertable = getOrdersCoffee();
+
 echo '<tr>';
     echo '<td> Type </td>';
     echo '<td> Size </td>';

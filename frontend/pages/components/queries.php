@@ -93,7 +93,7 @@ function getOrdersCoffee() {
     $rawtime = time();
     $date = $rawtime - 900;
     $db = dbConnect();
-    $query = "SELECT * FROM orders AS orders LEFT JOIN items AS items ON orders.type = items.itemid WHERE items.itemtype = 'coffee' AND orders.timeadded > $date ORDER BY orders.timeadded DESC";
+    $query = "SELECT * FROM orders AS orders JOIN items AS items ON orders.type = items.itemid WHERE items.itemtype = 'coffee' AND orders.timeadded > $date ORDER BY orders.timeadded DESC";
     $result = pg_query($db, $query);
     if (!$result) {
         pg_free_result($result);
@@ -116,7 +116,6 @@ function getOrdersCoffee() {
     pg_close($db);
     return $buildarray;
 }
-
 function insertCash($cash) {
 
     if (!$authorise = checkAuthentication()) {
