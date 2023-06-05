@@ -133,7 +133,7 @@ function changeToSize() {
     small.style.color = 'black';
     small.style.backgroundColor = 'lightblue';
     var medium = document.getElementById('1');
-    medium.innerText = 'Medium';
+    medium.innerText = 'Regular';
     medium.style.color = 'black';
     medium.style.backgroundColor = 'lightgreen';
     var large = document.getElementById('2');

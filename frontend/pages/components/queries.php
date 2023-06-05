@@ -93,7 +93,7 @@ function getOrdersCoffee() {
     $rawtime = time();
     $date = $rawtime - 900;
     $db = dbConnect();
-    $query = "SELECT * FROM orders AS orders JOIN items AS items ON orders.type = items.itemid WHERE items.itemtype = 'coffee' AND orders.timeadded > $date ORDER BY orders.timeadded DESC";
+    $query = "SELECT * FROM orders AS orders WHERE orders.timeadded > $date ORDER BY orders.timeadded DESC";
     $result = pg_query($db, $query);
     if (!$result) {
         pg_free_result($result);
@@ -104,11 +104,12 @@ function getOrdersCoffee() {
     $buildarray = array();
     while ($row = pg_fetch_assoc($result)) {
         $buildarray[] = array(
-            'itemname' => $row['itemname'],
-            'size' => $row['size'],
-            'milk' => $row['milktype'],
-            'shots' => $row['extrashots'],
-            'timeadded' => $row['timeadded']
+            'itemname'      => $row['type'],
+            'size'          => $row['size'],
+            'shots'         => $row['extrashots'],
+            'milk'          => $row['milktype'],
+            'timeadded'     => $row['timeadded'],
+            'sumtotal'      => $row['sumtotal']
         );
     }
 
@@ -216,15 +217,99 @@ function insertOrder($order = []) {
         return false;
     }
 
-    // Break the array, because it won't let me query otherwise?
+    // Break the array
     $type = $order['type'];
     $size = $order['size'];
-    $shots = $order['extrashots'];
     $milk = $order['milktype'];
+    $strshots = $order['extrashots'];
 
+    $shots = (int)$strshots;
     $date = time();
+    $sumtotal = 0;
+
+    // Get the coffee type as a string
     $db = dbConnect();
-    $query = "INSERT INTO orders (type, size, extrashots, milktype, timeadded) VALUES ($type, $size, $shots, $milk, $date)";
+    $query = "SELECT * FROM items WHERE itemtype = 'coffee' AND itemid = $type";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        echo "Error executing the query.";
+        exit;
+    }
+    while ($row = pg_fetch_assoc($result)) {
+        if ($row['itemname']) {
+            $coffeeType = $row['itemname'];
+        }
+        else {
+            $coffeeType = "Invalid Type.";
+        }
+        $typeintprice = floatval(str_replace('$', '', $row['price']));
+        $sumtotal = $sumtotal + $typeintprice;
+    }
+
+    echo "Coffee Type: $coffeeType<br>";
+    echo "Sum Total after coffee type: $sumtotal<br>";
+
+    // Get the size as a string
+    $db = dbConnect();
+    $query = "SELECT * FROM items WHERE itemtype = 'size' AND itemid = $size";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        echo "Error executing the query.";
+        exit;
+    }
+    while ($row = pg_fetch_assoc($result)) {
+        if ($row['itemname']) {
+            $coffeeSize = $row['itemname'];
+        }
+        else {
+            $coffeeSize = "Invalid Size.";
+        }
+        $sizeintprice = floatval(str_replace('$', '', $row['price']));
+        $sumtotal = $sumtotal + $sizeintprice;
+    }
+
+    echo "Coffee Size: $coffeeSize<br>";
+    echo "Sum Total after coffee size: $sumtotal<br>";
+
+    // Get the milk type as a string
+    $db = dbConnect();
+    $query = "SELECT * FROM items WHERE itemtype = 'milk' AND itemid = $milk";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        echo "Error executing the query.";
+        exit;
+    }
+    while ($row = pg_fetch_assoc($result)) {
+        if ($row['itemname']) {
+            $milkType = $row['itemname'];
+        }
+        else {
+            $milkType = "Invalid Milk.";
+        }
+        $milkintprice = floatval(str_replace('$', '', $row['price']));
+        $sumtotal = $sumtotal + $milkintprice;
+    }
+
+    echo "Milk Type: $milkType<br>";
+    echo "Sum Total after milk type: $sumtotal<br>";
+
+    // Extra Shots
+    if ($shots > 0) {
+        $db = dbConnect();
+        $query = "SELECT * FROM items WHERE itemtype = 'shot' AND itemid = 0";
+        $result = pg_query($db, $query);
+        if (!$result) {
+            echo "Error executing the query.";
+            exit;
+        }
+        while ($row = pg_fetch_assoc($result)) {
+            $shotintprice = floatval(str_replace('$', '', $row['price']));
+            $sumtotal = $sumtotal + ($shotintprice * $shots);
+
+        }
+    }
+
+    $query = "INSERT INTO orders (type, size, extrashots, milktype, timeadded, sumtotal) VALUES ('$coffeeType', '$coffeeSize', $shots, '$milkType', $date, '$sumtotal')";
     $result = pg_query($db, $query);
     if (!$result) {
         echo "Error executing the insert query.";

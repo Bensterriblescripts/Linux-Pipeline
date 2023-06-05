@@ -8,34 +8,16 @@ echo '<tr>';
     echo '<td> Size </td>';
     echo '<td id="centerrow"> Milk </td>';
     echo '<td id="centerrow"> Extra Shots </td>';
+    echo '<td id="centerrow"> Total </td>';
     echo '<td id="centerrow"> Order Time </td>';
 echo '</tr>';
 if (is_array($ordertable)) {
     foreach ($ordertable as $order) {
         $type = $order['itemname'];
-        $rawsize = $order['size'];
-
-        // Get Size
-        if ($rawsize == 0) {
-            $size = 'Small';
-        }
-        else if ($rawsize == 1) {
-            $size = 'Medium';
-        }
-        else if ($rawsize == 2) {
-            $size = 'Large';
-        }
-        else {
-            $size = 'Error';
-        }
-        
-        // Milk
-        if ($order['milk'] == 0) {
-            $milk = '';
-        }
-        else if ($order['milk'] >= 1) {
-            $milk = 'Extra';
-        }
+        $size = $order['size'];
+        $shots = $order['shots'];
+        $milk = $order['milk'];
+        $sumtotal = $order['sumtotal'];
 
         // Shots
         if ($order['shots'] > 0) {
@@ -53,6 +35,7 @@ if (is_array($ordertable)) {
             echo '<td>'.$size.'</td>';
             echo '<td id="centerrow">'.$milk.'</td>';
             echo '<td id="centerrow">'.$shots.'</td>';
+            echo '<td id="centerrow">'.$sumtotal.'</td>';
             echo '<td id="centerrow">'.$ordertime.'</td>';
         echo '</tr>';
     }
