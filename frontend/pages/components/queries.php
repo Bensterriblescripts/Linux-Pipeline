@@ -85,25 +85,38 @@ function getTodayTotal() {
     pg_free_result($result);
     pg_close($db);
 }
-function getPreviousOrders() {
-
+function getOrders() {
     if (!$authorise = checkAuthentication()) {
         return false;
     }
 
-    $date = date('Y-m-d');
+    $rawtime = time();
+    $date = $rawtime - 1800;
     $db = dbConnect();
-    $query = "SELECT * FROM daily WHERE day = '$date'";
+    $query = "SELECT * FROM orders WHERE timeadded > $date ORDER BY timeadded DESC";
     $result = pg_query($db, $query);
     if (!$result) {
+        pg_free_result($result);
+        pg_close($db);
         return 0;
     }
+
+    $buildarray = array();
     while ($row = pg_fetch_assoc($result)) {
-        return $row;
+        $buildarray[] = array(
+            'type' => $row['type'],
+            'size' => $row['size'],
+            'milk' => $row['milktype'],
+            'shots' => $row['extrashots'],
+            'timeadded' => $row['timeadded']
+        );
     }
+
     pg_free_result($result);
     pg_close($db);
+    return $buildarray;
 }
+
 function insertCash($cash) {
 
     if (!$authorise = checkAuthentication()) {
@@ -197,5 +210,28 @@ function insertEftpos($eftpos) {
         echo "Updated record for today.";
         pg_close($db);
     }
+}
+function insertOrder($order = []) {
+
+    if (!$authorise = checkAuthentication()) {
+        return false;
+    }
+
+    // Break the array, because it won't let me query otherwise?
+    $type = $order['type'];
+    $size = $order['size'];
+    $shots = $order['extrashots'];
+    $milk = $order['milktype'];
+
+    $date = time();
+    $db = dbConnect();
+    $query = "INSERT INTO orders (type, size, extrashots, milktype, timeadded) VALUES ($type, $size, $shots, $milk, $date)";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        echo "Error executing the insert query.";
+        exit;
+    }
+    echo "Inserted record for today.";
+    pg_close($db);
 }
 ?>

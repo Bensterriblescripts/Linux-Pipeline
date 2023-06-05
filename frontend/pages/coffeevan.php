@@ -15,10 +15,10 @@ else {
 }
 
 echo '<link rel="stylesheet" type="text/css" href="../main.css">';
-
+// Order Table
+$ordertable = getOrders();
 // Tile: 1 & 2
 $today = getTodayTotal();
-
 // Tile: 3
 $total = getYesterdayTotal()
 
@@ -26,6 +26,13 @@ $total = getYesterdayTotal()
 <body>
     <div class="ptitle">
         <h1>Dashboard</h1>
+    </div>
+    <div>
+        <table id="orderlist-table">
+            <tbody>
+                <?php include ('components/orderbuilder.php')?>
+            </tbody>
+        </table>
     </div>
     <div>
         <table id="stattable">

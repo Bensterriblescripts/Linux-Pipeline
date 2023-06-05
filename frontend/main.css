@@ -48,6 +48,7 @@ body {
 #stattable {
     border-spacing: 8rem;
     margin: auto;
+    margin-right: 4rem;
     margin-top: -4rem;
     color: white;
     user-select: none;
@@ -58,6 +59,20 @@ body {
     margin-top: 0rem;
     color: white;
     user-select: none;
+}
+#orderlist-table {
+    position: absolute;
+    top: 20.5rem;
+    left: 5rem;
+    border-spacing: 1.5rem;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+#centerrow {
+    text-align: center;
+}
+.orderbuild-row {
+    border: 1px solid white;
 }
 
 .tile {
