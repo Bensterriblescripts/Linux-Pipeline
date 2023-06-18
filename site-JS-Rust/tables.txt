@@ -1,0 +1,5 @@
+orders:
+id (int), itemname (string), size (int), shots (int), milk (str), sumwhole (int), sumcents (int), timeadded (int)
+
+stock:
+id (int), itemname (str), valuewhole (int), valuecents (int), timeadded (int)
