@@ -1,0 +1,60 @@
+---------------------------------
+
+Orders:
+id - serial
+coffee type - string
+size - int
+milk type - int
+extra shot - int
+syrup - int
+totalwhole - int
+totalcents - int
+time - unixtime/int
+
+------
+KEY
+------
+
+Milk Types:
+blue - 0, trim - 1, soy - 2, oat - 3
+
+Sizes: 
+0, 1
+medium, large
+
+Syrup:
+chocolate - 0
+
+---------------------------------
+
+Inventory:
+id - serial
+item - string
+costwhole - int
+costcents - int
+timeadded - unixtime/int
+timemodified - unixtime/int
+
+---------------------------------
+
+Daily:
+id - serial
+day - int
+month - int
+year - int
+cashwhole - int
+cashcents - int
+onlinewhole - int
+onlinecents - int
+timeadded - unixtime/int
+
+---------------------------------
+
+Assets:
+id - serial
+item - string
+costwhole - int
+costcents - int
+rate - int(percentage)
+timepurched - int
+
