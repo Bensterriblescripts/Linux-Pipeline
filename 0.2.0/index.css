@@ -1,3 +1,57 @@
-.login {
-    border: 2px black;
+.centercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+#orderbutton {
+    transform: scale(3.4);
+    
+    background-color: rgb(129, 71, 37);
+    color: white;
+    border-radius: 4px;
+}
+#ordertable {
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid black;
+    border-radius: 15px;
+    font-size: 32px;
+}
+#ordertable tr td {
+    padding: 10px;
+}
+#noorders {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 22rem;
+
+    font-size: 40px;
+}
+
+.neworder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+
+    border-spacing: 5rem;
+}
+
+.neworder tr td {
+    width: 24rem;
+    height: 20rem;
+}
+
+.orderbuttons {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    color: white;
+    font-size: 40px;
+    text-align: center;
 }

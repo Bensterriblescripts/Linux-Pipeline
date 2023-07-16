@@ -1,12 +1,12 @@
 <?php
 
 $authenticated = true;
-
 if ($authenticated === false) {
-    include('pages/login.php');
+    header("Location: https://paradisecoffee.cafe/login.php");
+    exit();
 }
 else if ($authenticated === true) {
-    include('pages/home.php');
+    header("Location: https://paradisecoffee.cafe/admin/home.php");
+    exit();
 }
-
 ?>

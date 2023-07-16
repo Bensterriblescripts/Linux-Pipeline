@@ -2,20 +2,23 @@
 
 Orders:
 id - serial
-coffee type - string
+type - string
 size - int
-milk type - int
-extra shot - int
+milk - int
+shots - int
 syrup - int
 totalwhole - int
 totalcents - int
-time - unixtime/int
+timeadded - unixtime/int
 
 ------
 KEY
 ------
 
-Milk Types:
+Type:
+coffee - 0, tea - 1, other - 2
+
+Milk:
 blue - 0, trim - 1, soy - 2, oat - 3
 
 Sizes: 
@@ -46,7 +49,7 @@ cashwhole - int
 cashcents - int
 onlinewhole - int
 onlinecents - int
-timeadded - unixtime/int
+timemodified - unixtime/int
 
 ---------------------------------
 
