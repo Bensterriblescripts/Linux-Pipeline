@@ -1,6 +1,5 @@
 <?php
 function dbConnect() {
-
     // Open DB Connection
     $host = 'localhost';
     $database = 'ParadiseCoffee';
@@ -86,6 +85,7 @@ function getTodayTotal() {
     pg_close($db);
 }
 function getOrdersCoffee() {
+    
     if (!$authorise = checkAuthentication()) {
         return false;
     }
