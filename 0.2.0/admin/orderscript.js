@@ -1,10 +1,28 @@
-order = [];
+order = {
+    'type'      : '',
+    'size'      : '',
+    'milk'      : '',
+    'shots'     : 0,
+    'syrup'     : '',
+    'decaf'     : ''
+
+};
 shots = 0;
 
 function coffee() {
 
     function send() {
-        console.log(order);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xhttp.open("POST", "../components/triggers.php", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(order));
+
+        window.location.href='https://paradisecoffee.cafe/admin/home.php';
     }
 
     function addShot() {
@@ -39,12 +57,13 @@ function coffee() {
         buttons[2].onclick = function() {addShot(this)};
         buttons[3].innerHTML = "Syrup";
         buttons[4].innerHTML = "Decaf";
+        buttons[5].innerHTML = "Finish";
 
         buttons[1].onclick = function() {extras(this)};
         buttons[2].onclick = function() {addShot(this)};
         buttons[3].onclick = function() {extras(this)};
         buttons[4].onclick = function() {extras(this)};
-        buttons[5].onclick = function() {send(this)};
+        buttons[5].onclick = function() {send()};
     }
 
     function decaf() {
@@ -61,7 +80,7 @@ function coffee() {
         buttons[2].onclick = function() {addShot(this)};
         buttons[3].onclick = function() {extras(this)};
         buttons[4].onclick = function() {extras(this)};
-        buttons[5].onclick = function() {send(this)};
+        buttons[5].onclick = function() {send()};
     }
 
     function extras(element) {
@@ -71,6 +90,7 @@ function coffee() {
         buttons[2].onclick = function() {addShot(this)};
         buttons[3].innerHTML = "Syrup";
         buttons[4].innerHTML = "Decaf";
+        buttons[5].innerHTML = "Finish";
 
         extra = element.innerHTML;
         if (extra == "Milk") {
@@ -85,6 +105,7 @@ function coffee() {
             buttons[2].onclick = function() {milk(this)};
             buttons[3].onclick = function() {milk(this)};
             buttons[4].onclick = function() {milk(this)};
+            buttons[5].onclick = function() {milk(this)};
 
         }
         if (extra == "Syrup") {
@@ -111,14 +132,13 @@ function coffee() {
         buttons[2].innerHTML = "Extra Shots";
         buttons[3].innerHTML = "Syrup";
         buttons[4].innerHTML = "Decaf";
-
         buttons[5].innerHTML = "Finish";
 
         buttons[1].onclick = function() {extras(this)};
         buttons[2].onclick = function() {addShot(this)};
         buttons[3].onclick = function() {extras(this)};
         buttons[4].onclick = function() {extras(this)};
-        buttons[5].onclick = function() {send(this)};
+        buttons[5].onclick = function() {send()};
 
         buttons[3].style.display = "block";
         buttons[4].style.display = "block";
@@ -129,18 +149,44 @@ function coffee() {
         order['type'] = element.innerHTML;
         console.log(order['type']);
 
-        buttons[1].innerHTML = "Medium";
-        buttons[2].innerHTML = "Large";
+        if (order['type'] == "Long Black" || order['type'] == "Americano" || order['type'] == "Espresso") {
 
-        buttons[1].onclick = function() {size(this)};
-        buttons[2].onclick = function() {size(this)};
+            order['size'] = "Regular";
+            console.log(order['size']);
+    
+            buttons[1].innerHTML = "Milk";
+            buttons[2].innerHTML = "Extra Shots";
+            buttons[3].innerHTML = "Syrup";
+            buttons[4].innerHTML = "Decaf";
+            buttons[5].innerHTML = "Finish";
+    
+            buttons[1].onclick = function() {extras(this)};
+            buttons[2].onclick = function() {addShot(this)};
+            buttons[3].onclick = function() {extras(this)};
+            buttons[4].onclick = function() {extras(this)};
+            buttons[5].onclick = function() {send()};
+    
+            buttons[3].style.display = "block";
+            buttons[4].style.display = "block";
+            buttons[5].style.display = "block";
 
-        buttons[3].style.display = "none";
-        buttons[4].style.display = "none";
-        buttons[5].style.display = "none";
-        buttons[6].style.display = "none";
-        buttons[7].style.display = "none";
-        buttons[8].style.display = "none";
+            buttons[6].style.display = "none";
+            buttons[7].style.display = "none";
+        }
+        else {
+            buttons[1].innerHTML = "Regular";
+            buttons[2].innerHTML = "Large";
+
+            buttons[1].onclick = function() {size(this)};
+            buttons[2].onclick = function() {size(this)};
+
+            buttons[3].style.display = "none";
+            buttons[4].style.display = "none";
+            buttons[5].style.display = "none";
+            buttons[6].style.display = "none";
+            buttons[7].style.display = "none";
+            buttons[8].style.display = "none";
+        }
     }
 
     // Start here
@@ -168,7 +214,17 @@ function coffee() {
 function tea() {
 
     function send() {
-        console.log(order);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xhttp.open("POST", "../components/triggers.php", true);
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(JSON.stringify(order));
+
+        window.location.href='https://paradisecoffee.cafe/admin/home.php';
     }
 
     function service(element) {
@@ -191,6 +247,8 @@ function tea() {
         buttons[5].onclick = function() {service(this)};
         buttons[6].onclick = function() {service(this)};
 
+        buttons[2].style.backgroundColor = "#a9eb8f";
+
     }
 
     function type(element) {
@@ -203,9 +261,12 @@ function tea() {
 
         buttons[1].onclick = function() {milk()};
         buttons[2].onclick = function() {send()};
+
+        buttons[2].style.backgroundColor = "red";
     }
 
     // Start here
+    order['size'] = "Regular";
     buttons = [];
     for (x = 1; x < 9; x++ ) {
         buttons[x] = document.getElementById(x);
@@ -213,9 +274,16 @@ function tea() {
         buttons[x].style.backgroundColor = "#7a482d";
     }
 
-    buttons[1].innerHTML = "Lemon Honey & Ginger";
+    buttons[1].style.backgroundColor = "#a9eb8f";
+    buttons[2].style.backgroundColor = "#a9eb8f";
+    buttons[3].style.backgroundColor = "#a9eb8f";
+    buttons[4].style.backgroundColor = "#a9eb8f";
+    buttons[5].style.backgroundColor = "#a9eb8f";
+    buttons[6].style.backgroundColor = "#a9eb8f";
+
+    buttons[1].innerHTML = "Lemon Honey and Ginger";
     buttons[2].innerHTML = "English Breakfast";
-    buttons[3].innerHTML = "Early Grey";
+    buttons[3].innerHTML = "Earl Grey";
 
     buttons[4].style.display = "none";
     buttons[5].style.display = "none";

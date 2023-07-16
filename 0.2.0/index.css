@@ -5,6 +5,9 @@
     margin-top: 4rem;
 }
 
+.tag {
+    text-align: center;
+}
 #orderbutton {
     transform: scale(3.4);
     
@@ -19,10 +22,11 @@
 
     border: 2px solid black;
     border-radius: 15px;
-    font-size: 32px;
+    font-size: 25px;
 }
 #ordertable tr td {
     padding: 10px;
+    text-align: center;
 }
 #noorders {
     display: flex;
@@ -55,3 +59,4 @@
     font-size: 40px;
     text-align: center;
 }
+

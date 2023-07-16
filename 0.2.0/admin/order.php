@@ -1,12 +1,14 @@
 <?php
-
 ?>
-<script src="orderscript.js"></script>
+<script src="orderscript.js?29"></script>
 <html>
     <style>
         <?php include '../index.css'; ?>
     </style>
     <body>
+        <div class="centercontainer">
+            <button id="orderbutton" onclick="home()">Return</button>
+        </div>
         <table class="neworder">
             <tbody>
                 <tr>
@@ -45,3 +47,8 @@
         </table>
     </body>
 </html>
+<script>
+function home() {
+    window.location.href="https://paradisecoffee.cafe/admin/home.php";
+}
+</script>

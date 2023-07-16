@@ -26,6 +26,9 @@ $orders = selectOrders();
                             <u>Size</u>
                         </td>
                         <td>
+                            <u>Decaf</u>
+                        </td>
+                        <td>
                             <u>Milk</u>
                         </td>
                         <td>
@@ -45,15 +48,21 @@ $orders = selectOrders();
                 ';
                     foreach ($orders as $order) {
                     echo '<tr>';
-                    echo '<td>'.$order['type'].'</td>';
+                    echo '<td style="text-align: left;">'.$order['type'].'</td>';
                     echo '<td>'.$order['size'].'</td>';
+                    if (isset($order['decaf'])) {
+                        echo '<td>'.$order['decaf'].'</td>';
+                    }
+                    else {
+                        echo '<td></td>';
+                    }
                     if (isset($order['milk'])) {
                         echo '<td>'.$order['milk'].'</td>';
                     }
                     else {
                         echo '<td></td>';
                     }
-                    if (isset($order['shots'])) {
+                    if (isset($order['shots']) && $order['shots'] != 0) {
                         echo '<td>'.$order['shots'].'</td>';
                     }
                     else {
