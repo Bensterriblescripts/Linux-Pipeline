@@ -90,6 +90,9 @@ function insertOrder($order) {
     if ($decaf != "") {
         $totalwhole = $totalwhole + 1;
     }
+    if ($milk != "" && $milk != "Normal" && $milk != "Trim") {
+        $totalwhole = $totalwhole + 1;
+    }
 
     $query = "INSERT INTO orders (type, size, milk, shots, syrup, decaf, totalwhole, totalcents, timeadded) VALUES ('$type', '$size', '$milk', '$shots', '$syrup', '$decaf', '$totalwhole', '$totalcents', '$timeadded')";
     $result = pg_query($db, $query);

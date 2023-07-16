@@ -1,6 +1,6 @@
 <?php
 ?>
-<script src="orderscript.js?29"></script>
+<script src="orderscript.js?45"></script>
 <html>
     <style>
         <?php include '../index.css'; ?>
