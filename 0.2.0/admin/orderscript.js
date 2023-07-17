@@ -22,7 +22,7 @@ function coffee() {
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(order));
 
-        window.location = "https://paradisecoffee.cafe/admin/home.php";
+        window.location = "https://paradisecoffee.cafe/admin/order.php";
     }
 
     function addShot() {
@@ -237,7 +237,7 @@ function tea() {
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(order));
 
-        window.location = "https://paradisecoffee.cafe/admin/home.php";
+        window.location = "https://paradisecoffee.cafe/admin/order.php";
     }
 
     function service(element) {
@@ -252,6 +252,12 @@ function tea() {
         buttons[4].innerHTML = "Almond";
         buttons[5].innerHTML = "Coconut";
         buttons[6].innerHTML = "Oat";
+
+        buttons[3].style.display = "block"
+        buttons[4].style.display = "block"
+        buttons[5].style.display = "block"
+        buttons[6].style.display = "block"
+
 
         buttons[1].onclick = function() {service(this)};
         buttons[2].onclick = function() {service(this)};
@@ -270,7 +276,9 @@ function tea() {
 
         buttons[1].innerHTML = "Milk";
         buttons[2].innerHTML = "Finish";
+
         buttons[3].style.display = "none";
+        buttons[4].style.display = "none";
 
         buttons[1].onclick = function() {milk()};
         buttons[2].onclick = function() {send()};
@@ -297,8 +305,8 @@ function tea() {
     buttons[1].innerHTML = "Lemon Honey and Ginger";
     buttons[2].innerHTML = "English Breakfast";
     buttons[3].innerHTML = "Earl Grey";
+    buttons[4].innerHTML = "Chai Latte";
 
-    buttons[4].style.display = "none";
     buttons[5].style.display = "none";
     buttons[6].style.display = "none";
     
@@ -317,7 +325,7 @@ function other() {
         xhttp.setRequestHeader("Content-Type", "application/json");
         xhttp.send(JSON.stringify(order));
 
-        window.location = "https://paradisecoffee.cafe/admin/home.php";
+        window.location = "https://paradisecoffee.cafe/admin/order.php";
     }
 
 
@@ -354,10 +362,10 @@ function other() {
         buttons[x].style.backgroundColor = "#403f3f";
     }
 
-    buttons[1].innerHTML = "Chai Latte";
-    buttons[2].innerHTML = "Hot Chocolate";
-    buttons[3].innerHTML = "Babyccino";
+    buttons[1].innerHTML = "Hot Chocolate";
+    buttons[2].innerHTML = "Babyccino";
 
+    buttons[3].style.display = "none";
     buttons[4].style.display = "none";
     buttons[5].style.display = "none";
     buttons[6].style.display = "none";

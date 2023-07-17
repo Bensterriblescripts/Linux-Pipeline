@@ -45,7 +45,8 @@ function selectOrders() {
             'shots'         => $row['shots'],
             'syrup'         => $row['syrup'],
             'total'         => $total,
-            'time'          => date('g:ia', $row['timeadded'])
+            'time'          => date('g:ia', $row['timeadded']),
+            'orderid'       => $row['orderid']
         );
     }
     pg_free_result($result);
@@ -81,6 +82,21 @@ function insertOrder($order) {
     }
     pg_free_result($result);
 
+    // Get orderID
+    $query = "
+    SELECT id
+    FROM uniqueorders
+    ORDER BY timeadded DESC
+    LIMIT 1";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        return;
+    }
+    while ($row = pg_fetch_assoc($result)) {
+        $orderid = $row['id'];
+    }
+    pg_free_result($result);
+
     if ($shots > 0) {
         $totalwhole = $totalwhole + $shots;
     }
@@ -94,7 +110,7 @@ function insertOrder($order) {
         $totalwhole = $totalwhole + 1;
     }
 
-    $query = "INSERT INTO orders (type, size, milk, shots, syrup, decaf, totalwhole, totalcents, timeadded) VALUES ('$type', '$size', '$milk', '$shots', '$syrup', '$decaf', '$totalwhole', '$totalcents', '$timeadded')";
+    $query = "INSERT INTO orders (type, size, milk, shots, syrup, decaf, totalwhole, totalcents, timeadded, orderid) VALUES ('$type', '$size', '$milk', '$shots', '$syrup', '$decaf', '$totalwhole', '$totalcents', '$timeadded', '$orderid')";
     $result = pg_query($db, $query);
     if (!$result) {
         echo "Error executing the insert query.";
@@ -103,5 +119,17 @@ function insertOrder($order) {
     echo "Added order";
     pg_close($db);
 
+}
+
+function insertUniqueOrder() {
+    $db = dbConnect();
+    $timeadded = time();
+    $query = "INSERT INTO uniqueorders (timeadded) VALUES ('$timeadded')";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        echo "Error executing the insert query.";
+        exit;
+    }
+    pg_close($db);
 }
 ?>

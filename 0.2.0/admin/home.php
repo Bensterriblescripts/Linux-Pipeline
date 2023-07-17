@@ -4,6 +4,9 @@ include('../components/db.php');
 // Get the current orders
 $orders = selectOrders();
 
+// Create a new uniqueID
+insertUniqueOrder();
+
 ?>
 <html>
     <style>
@@ -18,7 +21,7 @@ $orders = selectOrders();
             echo '
             <table id="ordertable">
                 <tbody>
-                    <tr>
+                    <tr id="key">
                         <td>
                             <u>Order</u>
                         </td>
@@ -43,41 +46,42 @@ $orders = selectOrders();
                         <td>
                             <u>Time</u>
                         <td>
-                    </tr> 
+                    </tr>
+            ';
+            foreach ($orders as $order) {
+                echo '
+                <tr>
+                    <td style="text-align: left;">'.$order['type'].'</td>
+                    <td>'.$order['size'].'</td>';
 
-                ';
-                    foreach ($orders as $order) {
-                    echo '<tr>';
-                    echo '<td style="text-align: left;">'.$order['type'].'</td>';
-                    echo '<td>'.$order['size'].'</td>';
-                    if (isset($order['decaf'])) {
-                        echo '<td>'.$order['decaf'].'</td>';
-                    }
-                    else {
-                        echo '<td></td>';
-                    }
-                    if (isset($order['milk'])) {
-                        echo '<td>'.$order['milk'].'</td>';
-                    }
-                    else {
-                        echo '<td></td>';
-                    }
-                    if (isset($order['shots']) && $order['shots'] != 0) {
-                        echo '<td>'.$order['shots'].'</td>';
-                    }
-                    else {
-                        echo '<td></td>';
-                    }
-                    if (isset($order['syrup'])) {
-                        echo '<td>'.$order['syrup'].'</td>';
-                    }
-                    else {
-                        echo '<td></td>';
-                    }
-                    echo '<td>'.$order['total'].'</td>';
-                    echo '<td>'.$order['time'].'</td>';
-                    echo '</tr>';
+                if (isset($order['decaf'])) {
+                    echo '<td>'.$order['decaf'].'</td>';
                 }
+                else {
+                    echo '<td></td>';
+                }
+                if (isset($order['milk'])) {
+                    echo '<td>'.$order['milk'].'</td>';
+                }
+                else {
+                    echo '<td></td>';
+                }
+                if (isset($order['shots']) && $order['shots'] != 0) {
+                    echo '<td>'.$order['shots'].'</td>';
+                }
+                else {
+                    echo '<td></td>';
+                }
+                if (isset($order['syrup'])) {
+                    echo '<td>'.$order['syrup'].'</td>';
+                }
+                else {
+                    echo '<td></td>';
+                }
+                echo '<td>'.$order['total'].'</td>';
+                echo '<td>'.$order['time'].'</td>';
+                echo '</tr>';
+            }
             echo '
                 </tbody>
             </table>';
@@ -90,6 +94,6 @@ $orders = selectOrders();
 </html>
 <script>
 function orderButton() {
-    window.location.href="https://paradisecoffee.cafe/admin/order.php";
+    window.location="https://paradisecoffee.cafe/admin/order.php";
 }
 </script>
