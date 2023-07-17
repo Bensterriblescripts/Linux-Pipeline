@@ -28,19 +28,21 @@
     background-color: rgb(180, 84, 137);
     color: white;
     border-radius: 4px;
+    margin-bottom: 4rem;
 }
-#ordertable {
-    margin-top: 4rem;
+#uniqueorder {
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
 
+    border-spacing: 2rem;
+
+    border: 2px solid black;
     border-radius: 15px;
     font-size: 25px;
 }
-#ordertable tr td {
+#uniqueorder tr td {
     margin-top: 1rem;
-    padding: 10px;
-    text-align: center;
 }
 #noorders {
     display: flex;

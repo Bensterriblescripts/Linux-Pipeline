@@ -44,7 +44,8 @@ function selectOrders() {
             'milk'          => $row['milk'],
             'shots'         => $row['shots'],
             'syrup'         => $row['syrup'],
-            'total'         => $total,
+            'totalwhole'    => $row['totalwhole'],
+            'totalcents'    => $row['totalcents'],
             'time'          => date('g:ia', $row['timeadded']),
             'orderid'       => $row['orderid']
         );
