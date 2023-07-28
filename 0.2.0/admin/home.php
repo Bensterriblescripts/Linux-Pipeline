@@ -209,6 +209,7 @@ insertUniqueOrder();
                 }
 
             }
+
             $totallength = strlen((string)$totalcents);
             if ($totallength == 3) {
                 $carry = substr($totalcents, 0, 1);
