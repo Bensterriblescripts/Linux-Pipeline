@@ -1,6 +1,6 @@
 <?php
 
-include ('../components/db.php');
+include('../components/db.php');
 
 $user = new stdClass;
 $user->username = "admin";
