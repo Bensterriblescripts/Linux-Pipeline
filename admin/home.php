@@ -60,15 +60,6 @@ insertUniqueOrder();
                     $totalwhole = $order['totalwhole'];
                     $totalcents = $order['totalcents'];
 
-                    // $numlength = strlen((string)$order['totalcents']);
-                    // if ($numlength == 1) {
-                    //     $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'].'0';
-                    // }
-                    // else {
-                    //     $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'];
-                    // };
-
-                    echo '<td>'.$cutotal.'</td>';
                     echo '<td>'.$order['time'].'</td>';
                     echo '</tr>';
 
@@ -105,15 +96,6 @@ insertUniqueOrder();
                         echo '<td></td>';
                     }
 
-                    $numlength = strlen((string)$order['totalcents']);
-                    if ($numlength == 1) {
-                        $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'].'0';
-                    }
-                    else {
-                        $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'];
-                    };
-
-                    echo '<td>'.$cutotal.'</td>';
                     echo '<td>'.$order['time'].'</td>';
                     echo '</tr>';
 
@@ -163,15 +145,7 @@ insertUniqueOrder();
                     else {
                         echo '<td></td>';
                     }
-                    $numlength = strlen((string)$order['totalcents']);
-                    if ($numlength == 1) {
-                        $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'].'0';
-                    }
-                    else {
-                        $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'];
-                    };
 
-                    echo '<td>'.$cutotal.'</td>';
                     echo '<td>'.$order['time'].'</td>';
                     echo '</tr>';
 
