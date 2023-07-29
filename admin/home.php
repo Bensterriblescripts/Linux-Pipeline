@@ -104,6 +104,14 @@ insertUniqueOrder();
                     $totalcents = $totalcents + $order['totalcents'];
                 }
                 else if ($orderid != $order['orderid']) {
+                    
+                    $centslength = strlen(strval($totalcents));
+                    if ($centslength > 3) {
+                        $remcents = $totalcents / 100;
+                        $totalwhole = $totalwhole + $remcents;
+                        $totalcents = $totalcents - ($remcents * 100);
+                    }
+                    $total = "$" . $totalwhole . '.' . $totalcents;
 
                     $total = "$" . $totalwhole . '.' . $totalcents;
 
@@ -157,10 +165,10 @@ insertUniqueOrder();
             }
 
             $centslength = strlen(strval($totalcents));
-
             if ($centslength > 3) {
                 $remcents = $totalcents / 100;
                 $totalwhole = $totalwhole + $remcents;
+                $totalcents = $totalcents - ($remcents * 100);
             }
             $total = "$" . $totalwhole . '.' . $totalcents;
 
