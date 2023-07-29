@@ -113,8 +113,6 @@ insertUniqueOrder();
                     }
                     $total = "$" . $totalwhole . '.' . $totalcents;
 
-                    $total = "$" . $totalwhole . '.' . $totalcents;
-
                     echo '
                     <tr><td>
                     <b>Total: '.$total.'</b>
