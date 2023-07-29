@@ -8,6 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($data['type']) && isset($data['size'])) {
         insertOrder($data);
     }
+    if (!isset($data['orderid'])) {
+        insertUniqueOrder();
+    }
 }
 
 ?>
