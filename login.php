@@ -5,7 +5,13 @@ include('components/db.php');
 $user = new stdClass;
 $user->username = "admin";
 $user->password = "admin";
-authenticateUser($user);
+$authuser = authenticateUser($user);
+if ($authuser == 0) {
+    echo 'No user found';
+}
+else {
+    echo 'Found test user: ' . $authuser->username . ' in DB.';
+}
 
 ?>
 <html>
