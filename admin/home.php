@@ -57,8 +57,8 @@ insertUniqueOrder();
                         echo '<td></td>';
                     }
 
-                    $totalwhole = $order['totalwhole'];
-                    $totalcents = $order['totalcents'];
+                    $totalwhole = $totalwhole + $order['totalwhole'];
+                    $totalcents = $totalcents + $order['totalcents'];
 
                     echo '<td>'.$order['time'].'</td>';
                     echo '</tr>';
@@ -105,7 +105,7 @@ insertUniqueOrder();
                 }
                 else if ($orderid != $order['orderid']) {
 
-                    $total = "$" . $totalwhole . $totalcents;
+                    $total = "$" . $totalwhole . '.' . $totalcents;
 
                     echo '
                     <tr><td>
@@ -156,7 +156,13 @@ insertUniqueOrder();
 
             }
 
-            $total = "$" . $totalwhole . $totalcents;
+            $centslength = strlen(strval($totalcents));
+
+            if ($centslength > 3) {
+                $remcents = $totalcents / 100;
+                $totalwhole = $totalwhole + $remcents;
+            }
+            $total = "$" . $totalwhole . '.' . $totalcents;
 
             echo '
             <tr><td>
