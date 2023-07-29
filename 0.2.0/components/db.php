@@ -37,6 +37,9 @@ function selectOrders() {
             $total = '$'.$row['totalwhole'].".".$row['totalcents'];
         }
 
+        // GMT+12 (NZST)
+        $row['timeadded'] = $row['timeadded'] + 43200;
+
         $buildorder[] = array(
             'type'          => $row['type'],
             'size'          => $row['size'],
