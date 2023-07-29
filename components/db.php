@@ -24,9 +24,8 @@ function authenticateUser($user) {
     if (!$result) {
         return 0;
     }
-    $dbuser = array();
     while ($row = pg_fetch_assoc($result)) {
-        $dbuser['user'] = $row['username'];
+        $dbuser = $row['username'];
     }
 
     pg_free_result($result);
