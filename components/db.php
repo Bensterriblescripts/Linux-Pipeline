@@ -28,24 +28,28 @@ function authenticateUser($user) {
     if (!$result) {
         return 0;
     }
+    $dbuser = array();
     while ($row = pg_fetch_assoc($result)) {
-        $dbuser = $row['username'];
+        $dbuser['username'] = $row['username'];
     }
     pg_free_result($result);
     pg_close($db);
 
     // Create token
     $db = dbConnect();
+
     $timeadded = time();
     $expiry = $timeadded + 86400;
     $ranstr = rand();
     $token = hash("sha256", $ranstr);
+
     $query = "INSERT INTO auth_token (username, token, timeadded, expiry) VALUES ('$dbuser', '$token', $timeadded, $expiry)";
     $result = pg_query($db, $query);
     if (!$result) {
         echo 'Error authenticating the user';
         return 0;
     }
+    $dbuser['token'] = $token;
     pg_close($db);
 
     return $dbuser;
