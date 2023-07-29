@@ -18,12 +18,17 @@ function authenticateUser($user) {
     SELECT *
     FROM auth AS a
     WHERE a.username = '$user->username'
-    AND a.pass = '$user->password'";
+    AND a.pass = '$user->password'
+    LIMIT 1";
     $result = pg_query($db, $query);
     if (!$result) {
         return 0;
     }
-    $dbuser = $result;
+    $dbuser = array();
+    while ($row = pg_fetch_assoc($result)) {
+        $dbuser['user'] = $row['username'];
+    }
+
     pg_free_result($result);
     pg_close($db);
 

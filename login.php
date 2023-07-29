@@ -10,7 +10,7 @@ if ($authuser == 0) {
     echo 'No user found';
 }
 else {
-    echo 'Found test user: ' . $authuser->username . ' in DB.';
+    echo 'Found test user: ' . $authuser->user . ' in DB.';
 }
 
 ?>
