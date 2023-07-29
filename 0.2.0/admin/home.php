@@ -57,22 +57,22 @@ insertUniqueOrder();
                         echo '<td></td>';
                     }
 
-                    $numlength = strlen((string)$order['totalcents']);
-                    if ($numlength == 1) {
-                        $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'].'0';
-                    }
-                    else {
-                        $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'];
-                    };
+                    $totalwhole = $order['totalwhole'];
+                    $totalcents = $order['totalcents'];
+
+                    // $numlength = strlen((string)$order['totalcents']);
+                    // if ($numlength == 1) {
+                    //     $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'].'0';
+                    // }
+                    // else {
+                    //     $cutotal = '$'.$order['totalwhole'].".".$order['totalcents'];
+                    // };
 
                     echo '<td>'.$cutotal.'</td>';
                     echo '<td>'.$order['time'].'</td>';
                     echo '</tr>';
 
                     $orderid = $order['orderid'];
-                    $totalwhole = $totalwhole + $order['totalwhole'];
-                    $totalcents = $totalcents + $order['totalcents'];
-
                 }
                 else if ($orderid == $order['orderid']) {
                     echo '
@@ -123,35 +123,7 @@ insertUniqueOrder();
                 }
                 else if ($orderid != $order['orderid']) {
 
-                    $totallength = strlen((string)$totalcents);
-                    if ($totallength == 3) {
-                        $carry = substr($totalcents, 0, 1);
-                        $totalwhole = $totalwhole + $carry;
-                        $totalcents = $totalcents - ($carry * 100);
-                        $numlength = strlen((string)$totalcents);
-                        if ($numlength == 1) {
-                            $total = '$'.$totalwhole.".".$totalcents.'0';
-                        }
-                        else {
-                            $total = '$'.$totalwhole.".".$totalcents;
-                        };
-                    }
-                    else if ($totallength == 4) {
-                        $carry = substr($totalcents, 0, 2);
-                        $totalwhole = $totalwhole + $carry;
-                        $totalcents = $totalcents - ($carry * 100);
-                        $numlength = strlen((string)$totalcents);
-                        if ($numlength == 1) {
-                            $total = '$'.$totalwhole.".".$totalcents.'0';
-                        }
-                        else {
-                            $total = '$'.$totalwhole.".".$totalcents;
-                        };
-                    }
-                    else {
-                        $total = '$'.$order['totalwhole'].".".$order['totalcents'];
-                    };
-
+                    $total = "$" . $totalwhole . $totalcents;
 
                     echo '
                     <tr><td>
@@ -210,35 +182,7 @@ insertUniqueOrder();
 
             }
 
-            $totallength = strlen((string)$totalcents);
-            if ($totallength == 3) {
-                $carry = substr($totalcents, 0, 1);
-                $totalwhole = $totalwhole + $carry;
-                $totalcents = $totalcents - ($carry * 100);
-                $numlength = strlen((string)$totalcents);
-                if ($numlength == 1) {
-                    $total = '$'.$totalwhole.".".$totalcents.'0';
-                }
-                else {
-                    $total = '$'.$totalwhole.".".$totalcents;
-                };
-            }
-            else if ($totallength == 4) {
-                $carry = substr($totalcents, 0, 2);
-                $totalwhole = $totalwhole + $carry;
-                $totalcents = $totalcents - ($carry * 100);
-                $numlength = strlen((string)$totalcents);
-                if ($numlength == 1) {
-                    $total = '$'.$totalwhole.".".$totalcents.'0';
-                }
-                else {
-                    $total = '$'.$totalwhole.".".$totalcents;
-                };
-            }
-            else {
-                $total = '$'.$order['totalwhole'].".".$order['totalcents'];
-            };
-
+            $total = "$" . $totalwhole . $totalcents;
 
             echo '
             <tr><td>

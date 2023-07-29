@@ -38,7 +38,7 @@ function selectOrders() {
         }
 
         // GMT+12 (NZST)
-        $row['timeadded'] = $row['timeadded'] + 43200;
+        $row['timeadded'] = $row['timeadded'] + 36000;
 
         $buildorder[] = array(
             'type'          => $row['type'],
