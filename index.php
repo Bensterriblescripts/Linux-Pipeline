@@ -1,6 +1,6 @@
 <?php
 
-$authenticated = true;
+$authenticated = false;
 if ($authenticated === false) {
     header("Location: https://paradisecoffee.cafe/login.php");
     exit();

@@ -12,6 +12,26 @@ function dbConnect() {
     return $db;
 }
 
+function authenticateUser($user) {
+    $db = dbConnect();
+    $query = "
+    SELECT *
+    FROM auth
+    WHERE username = $user->username
+    AND pass = $user->password";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        return 0;
+    }
+    $dbuser = $result;
+    pg_free_result($result);
+    pg_close($db);
+
+    // Create a token
+
+    return $dbuser;
+}
+
 function selectOrders() {
 
     $db = dbConnect();

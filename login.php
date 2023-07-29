@@ -1,5 +1,12 @@
 <?php
 
+include ('../components/db.php');
+
+$user = new stdClass;
+$user->username = "admin";
+$user->password = "admin";
+authenticateUser($user);
+
 ?>
 <html>
     <style>
