@@ -16,9 +16,9 @@ function authenticateUser($user) {
     $db = dbConnect();
     $query = "
     SELECT *
-    FROM auth
-    WHERE username = $user->username
-    AND pass = $user->password";
+    FROM auth AS a
+    WHERE a.username = '$user->username'
+    AND a.pass = '$user->password'";
     $result = pg_query($db, $query);
     if (!$result) {
         return 0;
