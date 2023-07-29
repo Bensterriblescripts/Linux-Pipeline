@@ -12,7 +12,11 @@ function dbConnect() {
     return $db;
 }
 
+
+// User Authentication
 function authenticateUser($user) {
+
+    // Find user
     $db = dbConnect();
     $query = "
     SELECT *
@@ -27,15 +31,28 @@ function authenticateUser($user) {
     while ($row = pg_fetch_assoc($result)) {
         $dbuser = $row['username'];
     }
-
     pg_free_result($result);
     pg_close($db);
 
-    // Create a token
+    // Create token
+    $db = dbConnect();
+    $timeadded = time();
+    $expiry = $timeadded + 86400;
+    $ranstr = rand();
+    $token = hash("sha256", $ranstr);
+    $query = "INSERT INTO auth_token (username, token, timeadded, expiry) VALUES ('$dbuser', '$token', $timeadded, $expiry)";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        echo 'Error authenticating the user';
+        return 0;
+    }
+    pg_close($db);
 
     return $dbuser;
 }
 
+
+// Orders
 function selectOrders() {
 
     $db = dbConnect();
@@ -81,7 +98,6 @@ function selectOrders() {
     pg_close($db);
     return $buildorder;
 }
-
 function insertOrder($order) {
 
     $db = dbConnect();
@@ -148,7 +164,6 @@ function insertOrder($order) {
     pg_close($db);
 
 }
-
 function insertUniqueOrder() {
     $db = dbConnect();
     $timeadded = time();
