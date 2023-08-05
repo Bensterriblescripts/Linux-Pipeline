@@ -20,8 +20,7 @@ function validateToken($token) {
     $query = "
     SELECT *
     FROM auth_token
-    WHERE token = '$token'
-    AND expiry > UNIX_TIMESTAMP()";
+    WHERE token = '$token'";
     $result = pg_query($db, $query);
     if (!$result) {
         return 0;

@@ -12,7 +12,7 @@ else {
         header("Location: https://paradisecoffee.cafe/admin/home.php");
         exit();
     }
-    else if ($user === 0) {
+    else if ($user == 0) {
         header("Location: https://paradisecoffee.cafe/login.php");
         exit();
     }
