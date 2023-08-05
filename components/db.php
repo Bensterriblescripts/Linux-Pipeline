@@ -29,6 +29,7 @@ function validateToken($token) {
     while ($row = pg_fetch_assoc($result)) {
         $user = $row['username'];
     }
+    echo 'found user' . $user;
     pg_free_result($result);
     pg_close($db);
 
