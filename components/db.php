@@ -14,8 +14,23 @@ function dbConnect() {
 
 // User Authentication
 
-function validateToken() {
-
+function validateToken($token) {
+    $db = dbConnect();
+    $query = "
+    SELECT *
+    FROM auth_token
+    WHERE token = $token";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        return 0;
+    }
+    while ($row = pg_fetch_assoc($result)) {
+        $dbuser['username'] = $row['username'];
+    }
+    pg_free_result($result);
+    pg_close($db);
+    
+    return 1;
 }
 function authenticateUser($user) {
 

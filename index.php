@@ -1,14 +1,20 @@
 <?php
 
 include('components/db.php');
-$token = validateToken();
 
-if ($token === 0) {
+if (!isset($_COOKIE['token'])) {
     header("Location: https://paradisecoffee.cafe/login.php");
     exit();
 }
-else if (isset($token) && $token != 0) {
-    header("Location: https://paradisecoffee.cafe/admin/home.php");
-    exit();
+else {
+    $authenticated = validateToken($COOKIE_['token']);
+     if ($authenticated === 1) {
+        header("Location: https://paradisecoffee.cafe/admin/home.php");
+        exit();
+    }
+    else {
+        header("Location: https://paradisecoffee.cafe/login.php");
+        exit();
+    }
 }
 ?>

@@ -2,17 +2,13 @@
 
 include('components/db.php');
 
+// Testing
 $user = new stdClass;
-$user->username = "admin";
-$user->password = "admin";
-$authuser = authenticateUser($user);
+$user->username = 'admin';
+$user->password = 'admin';
+$token = authenticateUser($user);
 
-if ($authuser == 0) {
-    echo 'No user found';
-}
-else {
-    echo 'Authenticated user: ' . $authuser['username'] . ' with token: ' . $authuser['token'];
-}
+echo 'Authenticated user with token' . $token
 
 ?>
 <html>
