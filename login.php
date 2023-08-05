@@ -8,8 +8,8 @@ $user->username = 'admin';
 $user->password = 'admin';
 $dbuser = authenticateUser($user);
 
-echo 'Authenticated user with token: ' . $dbuser['token'];
 setcookie("token", $dbuser['token'], $dbuser['expiry']);
+echo 'cookie contents: ' . $COOKIE_['token']['contents'];
 
 ?>
 <html>
