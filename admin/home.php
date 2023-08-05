@@ -7,6 +7,8 @@ $orders = selectOrders();
 // Create a new uniqueID
 insertUniqueOrder();
 
+echo time();
+
 ?>
 <html>
     <style>

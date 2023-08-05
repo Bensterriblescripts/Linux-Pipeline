@@ -25,8 +25,10 @@ function validateToken($token) {
     if (!$result) {
         return 0;
     }
+    $user = array();
     while ($row = pg_fetch_assoc($result)) {
-        $user = $row['username'];
+        $user['username'] = $row['username'];
+        $user['expiry'] = $row['expiry'];
     }
     echo 'found user' . $user;
     pg_free_result($result);
