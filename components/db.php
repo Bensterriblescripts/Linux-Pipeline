@@ -43,7 +43,9 @@ function authenticateUser($user) {
     $ranstr = rand();
     $token = hash("sha256", $ranstr);
 
-    $query = "INSERT INTO auth_token (username, token, timeadded, expiry) VALUES ('$dbuser['username']', '$token', $timeadded, $expiry)";
+    $username = $dbuser['username'];
+
+    $query = "INSERT INTO auth_token (username, token, timeadded, expiry) VALUES ('$username', '$token', $timeadded, $expiry)";
     $result = pg_query($db, $query);
     if (!$result) {
         echo 'Error authenticating the user';
