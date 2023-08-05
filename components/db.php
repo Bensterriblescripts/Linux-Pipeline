@@ -27,12 +27,12 @@ function validateToken($token) {
         return 0;
     }
     while ($row = pg_fetch_assoc($result)) {
-        $dbuser['username'] = $row['username'];
+        $user = $row['username'];
     }
     pg_free_result($result);
     pg_close($db);
 
-    return 1;
+    return $user;
 }
 function authenticateUser($user) {
 

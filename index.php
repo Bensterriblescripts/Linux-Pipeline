@@ -7,8 +7,8 @@ if (!isset($_COOKIE['token'])) {
     exit();
 }
 else {
-    $authenticated = validateToken($_COOKIE['token']);
-     if ($authenticated === 1) {
+    $user = validateToken($_COOKIE['token']);
+     if (isset($user)) {
         header("Location: https://paradisecoffee.cafe/admin/home.php");
         exit();
     }
