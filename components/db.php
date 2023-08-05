@@ -14,7 +14,10 @@ function dbConnect() {
 
 // User Authentication
 
-function validateToken($token) {
+function validateToken($cookie) {
+
+    $token = $cookie['contents'];
+
     $db = dbConnect();
     $query = "
     SELECT *
