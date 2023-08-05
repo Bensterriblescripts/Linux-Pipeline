@@ -30,7 +30,6 @@ function validateToken($token) {
         $user['username'] = $row['username'];
         $user['expiry'] = $row['expiry'];
     }
-    echo 'found user' . $user;
     pg_free_result($result);
     pg_close($db);
 
