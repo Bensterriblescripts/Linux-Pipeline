@@ -10,7 +10,7 @@ if ($authuser == 0) {
     echo 'No user found';
 }
 else {
-    echo 'Authenticated user: ' . $authuser['username'] . ' with token: ' . $dbuser['token'];
+    echo 'Authenticated user: ' . $authuser['username'] . ' with token: ' . $authuser['token'];
 }
 
 ?>
