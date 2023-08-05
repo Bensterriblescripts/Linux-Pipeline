@@ -9,7 +9,7 @@ $user->password = 'admin';
 $dbuser = authenticateUser($user);
 
 setcookie("token", $dbuser['token'], $dbuser['expiry']);
-echo 'Created token & cookie';
+echo 'Created token & cookie' . $dbuser['token'];
 
 ?>
 <html>
