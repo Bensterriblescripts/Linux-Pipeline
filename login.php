@@ -6,9 +6,9 @@ include('components/db.php');
 $user = new stdClass;
 $user->username = 'admin';
 $user->password = 'admin';
-$token = authenticateUser($user);
+$dbuser = authenticateUser($user);
 
-echo 'Authenticated user with token' . $token
+echo 'Authenticated user with token' . $dbuser['token']
 
 ?>
 <html>
