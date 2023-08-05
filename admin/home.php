@@ -1,8 +1,11 @@
 <?php
 include('../components/db.php');
 
-$user = validateToken($_COOKIE['token']);
-if ($user === 0 || !isset($user)) {
+if (!$user = validateToken($_COOKIE['token'])) {
+    header("Location: https://paradisecoffee.cafe/login.php");
+    exit();
+}
+if ($user === 0) {
     header("Location: https://paradisecoffee.cafe/login.php");
     exit();
 }
