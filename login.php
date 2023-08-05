@@ -6,6 +6,7 @@ $user = new stdClass;
 $user->username = "admin";
 $user->password = "admin";
 $authuser = authenticateUser($user);
+
 if ($authuser == 0) {
     echo 'No user found';
 }

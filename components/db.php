@@ -12,8 +12,11 @@ function dbConnect() {
     return $db;
 }
 
-
 // User Authentication
+
+function checkToken() {
+
+}
 function authenticateUser($user) {
 
     // Find user
@@ -40,8 +43,7 @@ function authenticateUser($user) {
 
     $timeadded = time();
     $expiry = $timeadded + 86400;
-    $ranstr = rand();
-    $token = hash("sha256", $ranstr);
+    $token = hash("sha256", rand());
 
     $username = $dbuser['username'];
 
