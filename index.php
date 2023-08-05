@@ -1,5 +1,6 @@
 <?php
 
+include('components/db.php');
 $token = validateToken();
 
 if ($token === 0) {

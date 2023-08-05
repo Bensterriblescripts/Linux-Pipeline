@@ -14,7 +14,7 @@ function dbConnect() {
 
 // User Authentication
 
-function checkToken() {
+function validateToken() {
 
 }
 function authenticateUser($user) {
