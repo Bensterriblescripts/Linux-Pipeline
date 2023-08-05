@@ -70,6 +70,7 @@ function authenticateUser($user) {
         return 0;
     }
     $dbuser['token'] = $token;
+    $dbuser['expiry'] = $expiry;
     pg_close($db);
 
     return $dbuser;
