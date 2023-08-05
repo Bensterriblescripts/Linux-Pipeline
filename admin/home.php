@@ -1,13 +1,17 @@
 <?php
 include('../components/db.php');
 
+validateToken($user);
+if ($user === 0) {
+    header("Location: https://paradisecoffee.cafe/login.php");
+    exit();
+}
+
 // Get the current orders
 $orders = selectOrders();
 
 // Create a new uniqueID
 insertUniqueOrder();
-
-echo time();
 
 ?>
 <html>
