@@ -1,6 +1,7 @@
 <?php
 
 include('components/db.php');
+include('components/nav.php');
 
 $ctime = time();
 
@@ -20,10 +21,23 @@ if (isset($_COOKIE['token'])) {
     }
 }
 ?>
-<html>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Coffee</title>
+    <style>
+        body {
+            background-image: url(/assets/naturalwhite-bg.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
         <h2>
-            Homepage
+            Home
         </h2>
-    </body>
+    </div>
+</body>
 </html>
