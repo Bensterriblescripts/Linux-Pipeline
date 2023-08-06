@@ -14,6 +14,16 @@ checkToken();
         body a {
             text-decoration: none;
         }
+        #core {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .option {
+            font-size: 30px;
+            border: 1px black;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -23,13 +33,13 @@ checkToken();
             <button type="submit" style="padding: 5px; font-size 14px;">Logout</button>
         </form>
     </div>
-    <table>
+    <table id="core">
         <tbody>
             <tr>
-                <td> 
+                <td class="option"> 
                     <a href="https://paradisecoffee.cafe/admin/orderhome.php">Orders</a>
                 </td>
-                <td>
+                <td class="option">
                     <a href="http://222.153.12.161:8096">Media</a>
                 </td>
             </tr>
