@@ -19,7 +19,7 @@
         <tbody>
             <tr>
                 <td> 
-                    <a href="https://paradisecoffee.cafe/orderhome.php">Orders</a>
+                    <a href="https://paradisecoffee.cafe/admin/orderhome.php">Orders</a>
                 </td>
                 <td>
                     <a href="http://222.153.12.161:8096">Media</a>

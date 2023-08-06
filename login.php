@@ -5,9 +5,7 @@ if (isset($_COOKIE['token'])) {
     $token = $_COOKIE['token'];
     setcookie('token', $token, time() - 3600);
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
