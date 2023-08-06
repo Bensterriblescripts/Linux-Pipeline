@@ -54,7 +54,7 @@ include('components/triggers.php');
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form class="login-form" action="/login" method="post">
+        <form class="login-form" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 

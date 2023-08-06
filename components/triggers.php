@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
         else {
-            header("Location: https://paradisecoffee.cafe/admin/home.php");
+            header("Location: https://paradisecoffee.cafe/login.php");
             exit();
         }
     }
