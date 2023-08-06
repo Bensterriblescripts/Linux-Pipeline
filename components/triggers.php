@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbuser = authenticateUser($user);
         if (isset($dbuser['username']) && $dbuser != 0) {
             setcookie("token", $dbuser['token'], $dbuser['expiry']);
-            header("Location: https://paradisecoffee.cafe/admin/orderhome.php");
+            header("Location: https://paradisecoffee.cafe/admin/home.php");
             exit();
         }
         else {
