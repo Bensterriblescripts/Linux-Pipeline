@@ -5,7 +5,7 @@ include('components/db.php');
 $ctime = time();
 
 if (!isset($_COOKIE['token'])) {
-    header("Location: https://paradisecoffee.cafe/login.php");
+    header("Location: https://paradisecoffee.cafe/home.php");
     exit();
 }
 else {
