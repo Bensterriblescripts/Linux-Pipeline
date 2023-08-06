@@ -9,7 +9,9 @@ include('components/nav.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
     <style>
-
+        body {
+            background-image: url(/assets/naturalwhite-bg.jpg);
+        }
     </style>
 </head>
 <body>
