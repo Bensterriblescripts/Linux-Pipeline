@@ -41,8 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Delete token from DB and expire the cookie
         logoutUser($token);
         setcookie('token', $token, time() - 3600);
-        header("Location: https://paradisecoffee.cafe/");
-        exit();
+        echo 'trigger activated';
     }
 }
 
