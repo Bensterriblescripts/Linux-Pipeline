@@ -20,7 +20,7 @@ checkToken();
     <div class="logout-btn">
         <form id="logoutForm" method="post">
             <input type="hidden" name="logout" value="true">
-            <button type="submit">Logout</button>
+            <button type="submit" style="padding: 5px; font-size 14px;">Logout</button>
         </form>
     </div>
     <table>

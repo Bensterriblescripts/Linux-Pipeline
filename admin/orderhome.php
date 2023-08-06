@@ -15,8 +15,11 @@ insertUniqueOrder();
         <div class="logout-btn">
             <form id="logoutForm" method="post">
                 <input type="hidden" name="logout" value="true">
-                <button type="submit">Logout</button>
+                <button type="submit" style="padding: 5px; font-size: 14px;">Logout</button>
             </form>
+        </div>
+        <div class="goback">
+            <a href="https://paradisecoffee.cafe"><button style="padding: 5px; font-size: 14px;">Back</button></a>
         </div>
         <div class="centercontainer">
             <button id="orderbutton" onclick="orderButton()">New Order</button>
