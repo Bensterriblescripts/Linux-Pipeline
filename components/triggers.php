@@ -33,6 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit();
         }
     }
+
+    // Log out user
+    else if (isset($_POST["logout"]) && isset($_COOKIE["token"])) {
+
+    }
 }
 
 ?>
