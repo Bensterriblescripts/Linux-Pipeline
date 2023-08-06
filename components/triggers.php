@@ -36,11 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Log out user
     else if (isset($_POST["logout"]) && isset($_COOKIE["token"])) {
+        
         $token = $_COOKIE['token'];
-        if (logoutUser($token)) {
-            header("Location: https://paradisecoffee.cafe/");
-            exit();
-        }
+
+        // Delete token from DB and expire the cookie
+        logoutUser($token);
+        setcookie('token', $token, time() - 3600);
+        header("Location: https://paradisecoffee.cafe/");
+        exit();
     }
 }
 

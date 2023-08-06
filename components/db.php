@@ -87,7 +87,7 @@ function authenticateUser($user) {
 function logoutUser($token) {
 
     $db = dbConnect();
-    $query = "DELETE * FROM auth_token WHERE token = '$token'";
+    $query = "DELETE FROM auth_token WHERE token = '$token'";
     $result = pg_query($db, $query);
     if (!$result) {
         return 0;
