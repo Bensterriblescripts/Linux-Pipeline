@@ -1,4 +1,5 @@
 <?php
+include('components/nav.php');
 ?>
 
 <!DOCTYPE html>
