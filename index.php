@@ -10,7 +10,7 @@ if (!isset($_COOKIE['token'])) {
 }
 else {
     $user = validateToken($_COOKIE['token']);
-     if (isset($user) && $user != 0 && $ctime < $user['expiry']) {
+    if (isset($user['expiry']) && $user != 0 && $ctime < $user['expiry']) {
         header("Location: https://paradisecoffee.cafe/admin/home.php");
         exit();
     }
