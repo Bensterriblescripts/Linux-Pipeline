@@ -22,12 +22,10 @@ insertUniqueOrder();
         <?php include '../index.css'; ?>
     </style>
     <body>
-        <div class="logout-container">
-            <form method="post">
-                <label for="logoutbutton">Log Out</label>
-                <input type="submit" id="logoutbutton" value="logout">
-            </form>
-        </div>
+    <form id="logoutForm" method="post">
+        <input type="hidden" name="logout" value="true">
+        <button type="submit">Logout</button>
+    </form>
         <div class="centercontainer">
             <button id="orderbutton" onclick="orderButton()">New Order</button>
         </div>
