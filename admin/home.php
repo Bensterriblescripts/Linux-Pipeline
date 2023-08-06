@@ -25,9 +25,7 @@ insertUniqueOrder();
         <div class="logout-container">
             <form method="post">
                 <label for="logoutbutton">Log Out</label>
-                <input type="button" id="logoutbutton" name="logout" required>
-
-                <input type="submit" value="logout">
+                <input type="submit" id="logoutbutton" value="logout">
             </form>
         </div>
         <div class="centercontainer">
