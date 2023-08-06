@@ -17,10 +17,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Log in user
-    else if (isset($_POST["username"]) && isset($_POST["password"]) && !isset($_COOKIE['token'])) {
+    else if (isset($_POST['username']) && isset($_POST['password']) && !isset($_COOKIE['token'])) {
         $user = new stdClass;
-        $user->username = $_POST["username"];
-        $user->password = $_POST["password"];
+        $user->username = $_POST['username'];
+        $user->password = $_POST['password'];
 
         $dbuser = authenticateUser($user);
         if (isset($dbuser['username']) && $dbuser != 0) {
