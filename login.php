@@ -1,7 +1,5 @@
 <?php
-
 include('components/triggers.php');
-
 ?>
 
 <!DOCTYPE html>
