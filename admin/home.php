@@ -1,11 +1,12 @@
 <?php
 include('../components/triggers.php');
 
-if (!$user = validateToken($_COOKIE['token'])) {
+$user = validateToken($_COOKIE['token']);
+if (!isset($user) || !$user['username']) {
     header("Location: https://paradisecoffee.cafe/login.php");
     exit();
 }
-if ($user === 0) {
+else if ($user === 0) {
     header("Location: https://paradisecoffee.cafe/login.php");
     exit();
 }

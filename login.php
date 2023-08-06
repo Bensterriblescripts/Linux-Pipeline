@@ -60,7 +60,7 @@ include('components/triggers.php');
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <input type="submit" value="Login">
+            <input type="submit" name='loginbtn' value="true">
         </form>
     </div>
 </body>
