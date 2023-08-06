@@ -13,7 +13,6 @@ function dbConnect() {
 }
 
 // User Authentication
-
 function validateToken($token) {
 
     $db = dbConnect();
@@ -95,6 +94,7 @@ function logoutUser($token) {
     if (!$result) {
         return 0;
     }
+    setcookie('token', $token, time() - 3600);
     pg_close($db);
     return;
 }

@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $token = $_COOKIE['token'];
 
         // Delete token from DB and expire the cookie
-        setcookie('token', $token, time() - 3600);
         logoutUser($token);
         header("Location: https://paradisecoffee.cafe/login.php");
         exit();
