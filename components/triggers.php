@@ -2,7 +2,6 @@
 
 include('db.php');
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
@@ -35,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Log out user
-    else if (isset($_POST["logout"]) && isset($_COOKIE["token"])) {
-        
+    else if (isset($_POST["logout"]) && isset($_COOKIE['token'])) {
+
         $token = $_COOKIE['token'];
 
         // Delete token from DB and expire the cookie
