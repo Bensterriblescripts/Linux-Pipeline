@@ -1,5 +1,5 @@
 <?php
-include('../components/db.php');
+include('../components/triggers.php');
 
 if (!$user = validateToken($_COOKIE['token'])) {
     header("Location: https://paradisecoffee.cafe/login.php");
@@ -12,8 +12,6 @@ if ($user === 0) {
 
 // Get the current orders
 $orders = selectOrders();
-
-// Create a new uniqueID
 insertUniqueOrder();
 
 ?>
