@@ -66,11 +66,20 @@ function authenticateUser($user) {
     $query = "INSERT INTO auth_token (username, token, timeadded, expiry) VALUES ('$username', '$token', $timeadded, $expiry)";
     $result = pg_query($db, $query);
     if (!$result) {
-        echo 'Error authenticating the user';
         return 0;
     }
     $dbuser['token'] = $token;
     $dbuser['expiry'] = $expiry;
+
+    // Update their login time
+    $query = "
+    UPDATE auth
+    SET lastlogged = '$expiry'
+    WHERE username = '$username'";
+    $result = pg_query($db, $query);
+    if (!$result) {
+        return 0;
+    }
     pg_close($db);
 
     return $dbuser;
