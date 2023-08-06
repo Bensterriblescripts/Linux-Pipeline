@@ -51,16 +51,19 @@ function authenticateUser($user) {
     }
     $dbuser = array();
     while ($row = pg_fetch_assoc($result)) {
-        $dbuser['username'] = $row['username'];
+        if (isset($row['username'])) {
+            $dbuser['username'] = $row['username'];
+        }
+        else {
+            return 0;
+        }
     }
     pg_free_result($result);
-
 
     // Now create a token
     $timeadded = time();
     $expiry = $timeadded + 86400;
     $token = hash("sha256", rand());
-
     $username = $dbuser['username'];
 
     $query = "INSERT INTO auth_token (username, token, timeadded, expiry) VALUES ('$username', '$token', $timeadded, $expiry)";
