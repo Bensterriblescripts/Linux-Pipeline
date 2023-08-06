@@ -15,7 +15,8 @@ if (isset($_COOKIE['token'])) {
         exit();
     }
     else {
-        echo 'DB Transaction error';
+        $token = $_COOKIE['token'];
+        setcookie('token', $token, time() - 3600);
     }
 }
 ?>

@@ -65,7 +65,7 @@ if (isset($_COOKIE['token'])) {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <input type="submit" name="Login">
+            <input type="submit">
         </form>
     </div>
 </body>
