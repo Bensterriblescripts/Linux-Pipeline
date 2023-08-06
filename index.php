@@ -4,11 +4,7 @@ include('components/db.php');
 
 $ctime = time();
 
-if (!isset($_COOKIE['token'])) {
-    header("Location: https://paradisecoffee.cafe/home.php");
-    exit();
-}
-else {
+if (isset($_COOKIE['token'])) {
     $user = validateToken($_COOKIE['token']);
     if (isset($user['expiry']) && $user != 0 && $ctime < $user['expiry']) {
         header("Location: https://paradisecoffee.cafe/admin/home.php");
@@ -23,3 +19,10 @@ else {
     }
 }
 ?>
+<html>
+    <body>
+        <h2>
+            Homepage
+        </h2>
+    </body>
+</html>

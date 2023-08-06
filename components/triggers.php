@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Delete token from DB and expire the cookie
         logoutUser($token);
-        header("Location: https://paradisecoffee.cafe/login.php");
+        header("Location: https://paradisecoffee.cafe/");
         exit();
     }
     else {
