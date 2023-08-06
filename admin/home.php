@@ -1,4 +1,6 @@
 <?php
+include('../components/triggers.php');
+checkToken();
 ?>
 <html>
 <head>

@@ -2,6 +2,19 @@
 
 include('db.php');
 
+// Token validation on POST pages
+function checkToken() {
+    $user = validateToken($_COOKIE['token']);
+    if (!isset($user) || !$user['username']) {
+        header("Location: https://paradisecoffee.cafe/login.php");
+        exit();
+    }
+    else if ($user === 0) {
+        header("Location: https://paradisecoffee.cafe/login.php");
+        exit();
+    }
+}
+
 // POST //
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);

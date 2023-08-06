@@ -1,4 +1,6 @@
 <?php
+include('../components/triggers.php');
+checkToken();
 ?>
 <script src="../admin/orderscript.js?5"></script>
 <html>

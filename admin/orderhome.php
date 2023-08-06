@@ -1,15 +1,6 @@
 <?php
 include('../components/triggers.php');
-
-$user = validateToken($_COOKIE['token']);
-if (!isset($user) || !$user['username']) {
-    header("Location: https://paradisecoffee.cafe/login.php");
-    exit();
-}
-else if ($user === 0) {
-    header("Location: https://paradisecoffee.cafe/login.php");
-    exit();
-}
+checkToken();
 
 // Get the current orders
 $orders = selectOrders();
