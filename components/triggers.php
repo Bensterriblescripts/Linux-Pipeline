@@ -43,6 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         setcookie('token', $token, time() - 3600);
         echo 'trigger activated';
     }
+    else {
+        echo "Trigger failed, POST request: " . $_POST;
+    }
 }
 
 ?>
