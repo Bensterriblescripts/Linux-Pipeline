@@ -1,6 +1,5 @@
 <?php
 
-include('components/db.php');
 include('components/triggers.php');
 
 ?>

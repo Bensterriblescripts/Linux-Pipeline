@@ -54,7 +54,6 @@ function authenticateUser($user) {
         $dbuser['username'] = $row['username'];
     }
     pg_free_result($result);
-    pg_close($db);
 
     // Create token
     $db = dbConnect();
