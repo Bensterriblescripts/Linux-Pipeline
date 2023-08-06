@@ -40,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Delete token from DB and expire the cookie
         logoutUser($token);
         setcookie('token', $token, time() - 3600);
-        echo 'trigger activated';
+        header("Location: https://paradisecoffee.cafe/login.php");
+        exit();
     }
     else {
         echo "Trigger failed";
