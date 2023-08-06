@@ -17,6 +17,12 @@ checkToken();
     </style>
 </head>
 <body>
+    <div class="logout-btn">
+        <form id="logoutForm" method="post">
+            <input type="hidden" name="logout" value="true">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
     <table>
         <tbody>
             <tr>
