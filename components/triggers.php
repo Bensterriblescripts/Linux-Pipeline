@@ -34,8 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Log out user
-    else if (isset($_POST["logout"]) && isset($_COOKIE['token'])) {
-
+    else if (isset($_POST["logout"]) && $_POST['logout'] === 'true' && isset($_COOKIE['token'])) {
         $token = $_COOKIE['token'];
 
         // Delete token from DB and expire the cookie
@@ -44,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'trigger activated';
     }
     else {
-        echo "Trigger failed, POST request: " . $_POST;
+        echo "Trigger failed";
     }
 }
 
