@@ -55,7 +55,7 @@ if (isset($_COOKIE['token'])) {
 </head>
 <body>
     <div class="goback">
-        <button action="/">Return</button>
+        <a href="https://paradisecoffee.cafe"><button>Return</button></a>
     </div>
     <div class="login-container">
         <h2>Admin Login</h2>
