@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user->password = $_POST["password"];
 
         $dbuser = authenticateUser($user);
-        if (isset($dbuser) && $dbuser != 0) {
+        if (isset($dbuser['username']) && $dbuser != 0) {
             setcookie("token", $dbuser['token'], $dbuser['expiry']);
             header("Location: https://paradisecoffee.cafe/admin/home.php");
             exit();

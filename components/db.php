@@ -37,7 +37,7 @@ function validateToken($token) {
 }
 function authenticateUser($user) {
 
-    // Find user
+    // Find the user
     $db = dbConnect();
     $query = "
     SELECT *
@@ -55,9 +55,8 @@ function authenticateUser($user) {
     }
     pg_free_result($result);
 
-    // Create token
-    $db = dbConnect();
 
+    // Now create a token
     $timeadded = time();
     $expiry = $timeadded + 86400;
     $token = hash("sha256", rand());
