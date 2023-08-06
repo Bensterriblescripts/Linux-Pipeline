@@ -54,8 +54,11 @@ if (isset($_COOKIE['token'])) {
     </style>
 </head>
 <body>
+    <div class="goback">
+        <button action="/">Return</button>
+    </div>
     <div class="login-container">
-        <h2>Login</h2>
+        <h2>Admin Login</h2>
         <form class="login-form" method="post">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
