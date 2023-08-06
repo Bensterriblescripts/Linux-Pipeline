@@ -5,11 +5,33 @@ include('db.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
+
+    // Insert order item
     if (isset($data['type']) && isset($data['size'])) {
         insertOrder($data);
     }
-    else if ($data == "NewID") {
+
+    // Start new order
+    else if ($data === "NewID") {
         insertUniqueOrder();
+    }
+
+    // Log in user
+    else if (isset($_POST["username"]) && isset($_POST["password"])) {
+        $user = new stdClass;
+        $user->username = $_POST["username"];
+        $user->password = $_POST["password"];
+
+        $dbuser = authenticateUser($user);
+        if (isset($dbuser) && $dbuser != 0) {
+            setcookie("token", $dbuser['token'], $dbuser['expiry']);
+            header("Location: https://paradisecoffee.cafe/admin/home.php");
+            exit();
+        }
+        else {
+            header("Location: https://paradisecoffee.cafe/admin/home.php");
+            exit();
+        }
     }
 }
 
