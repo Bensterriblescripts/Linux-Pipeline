@@ -195,6 +195,6 @@ insertUniqueOrder();
 </html>
 <script>
 function orderButton() {
-    window.location="https://paradisecoffee.cafe/admin/orderhome.php";
+    window.location="https://paradisecoffee.cafe/admin/order.php";
 }
 </script>

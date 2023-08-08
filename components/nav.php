@@ -41,8 +41,11 @@
         }
         #title {
             font-family: nice;
-            text-align: center;
+            text-align: left;
             font-size: 60px;
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: -8rem;
             font-weight: bold;
             text-decoration: none;
             color: black;
@@ -51,7 +54,7 @@
     </head>
     <body>
         <div id="navbar">
-            <ul>
+            <ul id=titlebar>
                 <li id="site-title">
                     <a id="title" href="https://paradisecoffee.cafe">Paradise Coffee</a>
                 </li>
