@@ -15,6 +15,11 @@ if (isset($_COOKIE['token'])) {
     <title>Administration</title>
     <style>
         body {
+            display: flex;
+            position: static;
+            margin-left: auto;
+            margin-right: auto;
+
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
