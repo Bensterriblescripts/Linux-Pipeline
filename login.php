@@ -30,6 +30,7 @@ if (isset($_COOKIE['token'])) {
             margin-top: 10rem;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: auto;
             background-color: #ffffff;
             border: 1px solid #ccc;
             padding: 20px;
