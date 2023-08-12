@@ -29,10 +29,25 @@ include('components/nav.php');
 </head>
 <body>
     <div id="core">
-        <p>
-            Kapiti based coffee van, run by a barista with a decade of experience.
-        </p>
-        <img class="center-image" src="../assets/photos/fb_photo.jpg" alt="me">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        Owner: Sou Yi Nanson
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Phone: 021400257
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email: souyimen95@gmail.com
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

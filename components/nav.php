@@ -82,11 +82,6 @@
         </ul>
         <ul>
             <li>
-                <a class="navlinks" href="https://paradisecoffee.cafe/about.php">About</a>
-            </li>
-        </ul>
-        <ul>
-            <li>
                 <a class="navlinks" href="https://paradisecoffee.cafe/login.php">Login</a>
             </li>
         </ul>
