@@ -32,7 +32,8 @@ if (isset($_COOKIE['token'])) {
             margin-left: auto;
             margin-right: auto;
 
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
         #core {
             margin-top: 10rem;

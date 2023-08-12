@@ -20,7 +20,7 @@ if (isset($_COOKIE['token'])) {
         }
 
         .login-container {
-            max-width: 300px;
+            max-width: 300px;s
             margin: 100px auto;
             background-color: #ffffff;
             border: 1px solid #ccc;
@@ -55,9 +55,6 @@ if (isset($_COOKIE['token'])) {
     </style>
 </head>
 <body>
-    <div class="goback">
-        <a href="https://paradisecoffee.cafe"><button style="padding: 5px; font-size: 14px;">Back</button></a>
-    </div>
     <div class="login-container">
         <h2>Admin Login</h2>
         <form class="login-form" method="post">
