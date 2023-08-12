@@ -1,5 +1,6 @@
 <?php
 include('components/triggers.php');
+include('components/nav.php');
 
 if (isset($_COOKIE['token'])) {
     $token = $_COOKIE['token'];

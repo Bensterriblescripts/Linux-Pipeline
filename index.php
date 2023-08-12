@@ -24,20 +24,33 @@ if (isset($_COOKIE['token'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paradise Coffee</title>
     <style>
         body {
-            background-image: url(/assets/naturalwhite-bg.jpg);
+            display: flex;
+            position: static;
+            background-image: linear-gradient(pink, white);
+            margin-left: auto;
+            margin-right: auto;
+
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #core {
+            margin-top: 10rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .center-image {
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="title">
-        <h2>
-            Home
-        </h2>
+    <div id="core">
+        <p>
+            Kapiti based coffee van, run by a barista with a decade of experience.
+        </p>
+        <img class="center-image" src="../assets/photos/fb_photo.jpg" alt="me">
     </div>
 </body>
 </html>
