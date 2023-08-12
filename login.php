@@ -22,6 +22,9 @@ if (isset($_COOKIE['token'])) {
         .login-container {
             max-width: 300px;s
             margin: 100px auto;
+            margin-top: 10rem;
+            margin-left: auto;
+            margin-right: auto;
             background-color: #ffffff;
             border: 1px solid #ccc;
             padding: 20px;
