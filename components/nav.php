@@ -61,9 +61,33 @@
             margin-left: 0;
             top: 0;
         }
+
+        @media (max-width: 1000px) {
+            
+            #navbar {
+                display: block;
+                margin-top: auto;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            #site-title {
+                margin-right: auto;
+                margin-left: auto;
+            }
+            #title {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 30px;
+            }
+            #img-tl {
+                transform: scale(0.5);
+            }
+        }
     </style>
 </head>
-    <img id="img-tl" src="../assets/photos/PC_Plant-Branch_Full-Colour_SMALL.png" alt="">
+    <img id="img-tl" src="../assets/photos/PC_Plant-Branch_Full-Colour_SMALL.png" alt="plant">
+    <img id="img-tl" src="../assets/photos/PC_Plant-Branch_Full-Colour_SMALL.png" alt="plant">
     <div id="navbar">
         <ul>
             <li id="site-title">
