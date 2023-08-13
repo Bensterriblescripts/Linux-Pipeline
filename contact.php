@@ -36,12 +36,21 @@ include('components/nav.php');
             display: flex;
         }
         #about {
-            margin-top: 4rem;
+            margin-top: 2rem;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
             justify-content: center;
             display: flex;
+        }
+        @media (max-width: 1000px) {
+            #core {
+                margin-top: 13rem;
+            } 
+            .center-image {
+                border-radius: 0px;
+                margin-top: 2rem;
+            }
         }
     </style>
 </head>
@@ -92,6 +101,7 @@ include('components/nav.php');
                 </tr>
             </tbody>
         </table>
+        <img class="center-image" src="../assets/photos/fb_photo.jpg" alt="me">
     </div>
 </body>
 </html>

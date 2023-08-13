@@ -51,7 +51,6 @@ if (isset($_COOKIE['token'])) {
         <p>
             Kapiti based coffee van, run by a barista with a decade of experience.
         </p>
-        <img class="center-image" src="../assets/photos/fb_photo.jpg" alt="me">
     </div>
 </body>
 </html>

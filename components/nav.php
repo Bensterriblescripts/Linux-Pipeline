@@ -21,7 +21,7 @@
             justify-content: center;
             z-index: 1;
 
-            /* background-color: lightpink; */
+            background-image: url(../assets/photos/PC_Flower_Pink.png);
             /* opacity: 0.8; */
             border-radius: 15px;
         }
@@ -61,13 +61,19 @@
             margin-left: 0;
             top: 0;
         }
+        #img-t2 {
+            position: absolute;
+            margin-left: 0;
+            top: 0;
+            display: none;
+        }
 
         @media (max-width: 1000px) {
             
             #navbar {
                 display: block;
                 margin-top: auto;
-                margin-left: auto;
+                margin-left: -1rem;
                 margin-right: auto;
                 text-align: center;
             }
@@ -81,13 +87,16 @@
                 font-size: 30px;
             }
             #img-tl {
-                transform: scale(0.5);
+                display: none;
+            }
+            #img-t2 {
+                display: block;
             }
         }
     </style>
 </head>
     <img id="img-tl" src="../assets/photos/PC_Plant-Branch_Full-Colour_SMALL.png" alt="plant">
-    <img id="img-tl" src="../assets/photos/PC_Plant-Branch_Full-Colour_SMALL.png" alt="plant">
+    <img id="img-t2" src="../assets/photos/PC_Plant-Branch_Full-Colour_SMALLER.png" alt="plant">
     <div id="navbar">
         <ul>
             <li id="site-title">
