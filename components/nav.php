@@ -21,7 +21,6 @@
             justify-content: center;
             z-index: 1;
 
-            background-image: url(../assets/photos/PC_Flower_Pink.png);
             /* opacity: 0.8; */
             border-radius: 15px;
         }
@@ -63,8 +62,8 @@
         }
         #img-t2 {
             position: absolute;
-            margin-left: 0;
-            top: 0;
+            left: 0.5rem;
+            top: 0.5rem;
             display: none;
         }
 
