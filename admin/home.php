@@ -23,6 +23,7 @@ checkToken();
             font-size: 30px;
             border: 1px black;
             border-radius: 5px;
+            text-align: center;
         }
     </style>
 </head>
@@ -35,11 +36,13 @@ checkToken();
     </div>
     <table id="core">
         <tbody>
-            <tr>
-                <td class="option"> 
+            <tr class="option">
+                <td> 
                     <a href="https://paradisecoffee.cafe/admin/orderhome.php">Orders</a>
                 </td>
-                <td class="option">
+            </tr>
+            <tr class="option">
+                <td>
                     <a href="http://222.153.12.161:8096">Media</a>
                 </td>
             </tr>
