@@ -18,12 +18,13 @@ include('components/nav.php');
             background-color: #f0f0f0;
         }
         #core {
-            margin-top: 14rem;
+            margin-top: 11rem;
             margin-left: auto;
             margin-right: auto;
         }
         .center-image {
             border-radius: 10px;
+            margin-top: 2rem;
         }
         #small-title {
             font-size: 20px;
@@ -44,12 +45,8 @@ include('components/nav.php');
             display: flex;
         }
         @media (max-width: 1000px) {
-            #core {
-                margin-top: 13rem;
-            } 
             .center-image {
                 border-radius: 0px;
-                margin-top: 2rem;
             }
         }
     </style>
@@ -94,7 +91,7 @@ include('components/nav.php');
                         Owned and run by a Cambodian/Kiwi barista, Paradise Coffee started in Kapiti during 2023.
                         <br>
                         <br>
-                        Sou Yi' spent over 10 years working in Cafés around Wellington making coffees and serving food.
+                        Sou Yi spent over 10 years working in Cafés around Wellington making coffees and serving food.
                         <br>
                         She spent the last few years saving up for a new coffee van to run her way, with coffee that meets her standards.
                     </td>

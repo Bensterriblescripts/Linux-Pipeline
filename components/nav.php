@@ -15,7 +15,7 @@
             /* background-image: url('../assets/photos/PC_Flower_Pink_MEDIUM.png');
             background-size: cover; */
             width: 100%;
-            position: fixed;
+            position: absolute;
             margin-left: auto;
             margin-right: auto;
             margin-top: 2.5rem;
