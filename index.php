@@ -36,7 +36,6 @@ if (isset($_COOKIE['token'])) {
             background-color: #f0f0f0;
         }
         #core {
-            background-image: url(../assets/photos/PC_Flower_Pink_MEDIUM.png);
             margin-top: 9rem;
             margin-left: auto;
             margin-right: auto;

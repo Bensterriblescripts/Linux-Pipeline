@@ -12,6 +12,8 @@
             src: url(/assets/AlexBrush-Regular.ttf);
         }
         #navbar {
+            /* background-image: url('../assets/photos/PC_Flower_Pink_MEDIUM.png');
+            background-size: cover; */
             width: 100%;
             position: fixed;
             margin-left: auto;
