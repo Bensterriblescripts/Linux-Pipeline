@@ -36,7 +36,7 @@ if (isset($_COOKIE['token'])) {
             background-color: #f0f0f0;
         }
         #core {
-            margin-top: 10rem;
+            margin-top: 9rem;
             margin-left: auto;
             margin-right: auto;
             text-align: center;

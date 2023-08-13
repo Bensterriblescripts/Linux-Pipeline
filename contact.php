@@ -17,37 +17,46 @@ include('components/nav.php');
             background-color: #f0f0f0;
         }
         #core {
-            margin-top: 10rem;
+            margin-top: 12rem;
             margin-left: auto;
             margin-right: auto;
             text-align: center;
+            justify-content: center;
         }
         .center-image {
             border-radius: 10px;
+        }
+        #about {
+            margin-top: 5rem;
         }
     </style>
 </head>
 <body>
     <div id="core">
-        <table>
+        <table id="contact">
             <tbody>
                 <tr>
                     <td>
-                        Owner: Sou Yi Nanson
+                        Sou Yi Nanson
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Phone: 021400257
+                        021400257
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Email: souyimen95@gmail.com
+                        souyimen95@gmail.com
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div id="about">
+        <p>
+            <h2>About</h2>
+        </p>
     </div>
 </body>
 </html>
