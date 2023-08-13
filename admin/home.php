@@ -9,7 +9,7 @@ checkToken();
     <title>Admin</title>
     <style>
         body {
-            background-image: url(/assets/naturalwhite-bg.jpg);
+            background-image: linear-gradient(pink, white);
         }
         body a {
             text-decoration: none;
