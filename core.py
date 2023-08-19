@@ -33,6 +33,11 @@ def pushAll(repositories, dir):
         os.system('git commit -m "Automated Push"')
         os.system('git push')
 
-# firstSetup(repositories, baseurl)
-# pullAll(repositories, dir)
-pushAll(repositories, dir)
+while input != "1" or input != "2" or input != "3":
+    input = input("1. Pull \n2. Push \n3. Initiate Repositories \n")
+    if input == "1":
+        pullAll(repositories, dir)
+    elif input == "2":
+        pushAll(repositories, dir)
+    elif input == "3":
+        firstSetup(repositories, baseurl)
