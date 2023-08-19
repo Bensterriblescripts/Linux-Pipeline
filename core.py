@@ -7,13 +7,17 @@ baseurl = "https://github.com/Bensterriblescripts/"
 
 dir = "/home/ben/Repositories"
 if os.path.exists(dir) == False:
-    os.system("mkdir Repositories")
+    os.system("mkdir /home/ben/Repositories")
 os.chdir(dir)
 
-def firstSetup():
+def firstSetup(repositories, baseurl):
     os.system('git config --global user.email "coffeeinfusednanson@gmail.com"')
     os.system('git config --global user.name "Ben Nanson"')
     os.system('git config --global credential.helper store')
+    for repo in repositories:
+        repodir = dir + "/" + repo
+        if os.path.exists(repodir) == False:
+            os.system('git clone ' + baseurl + ".git")
 
 def pullAll(repositories, dir):
     for repo in repositories:
@@ -29,6 +33,6 @@ def pushAll(repositories, dir):
         os.system('git commit -m "Automated Push"')
         os.system('git push')
 
-# firstSetup
+# firstSetup(repositories, baseurl)
 # pullAll(repositories, dir)
 pushAll(repositories, dir)
