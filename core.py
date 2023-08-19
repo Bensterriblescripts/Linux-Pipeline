@@ -1,7 +1,7 @@
 import os
 
 repositories = [
-    "Template-Projects", "Website-CoffeeOrders", "Linux-Pipeline", "Script-BruteForcePassword"
+    "Template-Projects", "Website-CoffeeOrders", "Linux-Pipeline", "Script-BruteForcePassword", "Moodle-ChatGPTIntegration"
 ]
 baseurl = "https://github.com/Bensterriblescripts/"
 
@@ -17,7 +17,7 @@ def firstSetup(repositories, baseurl):
     for repo in repositories:
         repodir = dir + "/" + repo
         if os.path.exists(repodir) == False:
-            os.system('git clone ' + baseurl + ".git")
+            os.system('git clone ' + baseurl + repo + ".git")
 
 def pullAll(repositories, dir):
     for repo in repositories:
