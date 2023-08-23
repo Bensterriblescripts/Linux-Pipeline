@@ -37,6 +37,7 @@ fn command(dir: &str, arg: &str) {
     }
 }
 
+// Git Commands
 fn push(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
         let mut arg = "";
@@ -52,7 +53,6 @@ fn push(basedir: &str, repositories: [&str; 3]) {
         command(&dir, arg);
     }
 }
-
 fn pull(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
         let mut dir = basedir.to_string() + repo;
@@ -60,7 +60,6 @@ fn pull(basedir: &str, repositories: [&str; 3]) {
         command(repo, arg);
     }
 }
-
 fn initiate(repositories: [&str; 3]) {
 
 }
