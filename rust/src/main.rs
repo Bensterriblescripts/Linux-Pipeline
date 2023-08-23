@@ -32,47 +32,17 @@ fn push(repo: &str) {
     let output = Command::new("cmd")
         .args(&["/C", "git add -A"])
         .current_dir(repo)
-        .output()
-        .expect("Failed to execute command");
-
-    if output.status.success() {
-        let stdout = String::from_utf8_lossy(&output.stdout);
-        println!("{}", stdout);
-    } 
-    else {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        println!("{}", stderr);
-    }
+        .output();
 
     // Commmit message
     let output = Command::new("cmd")
         .args(&["/C", "git commit -m 'Auto-Push'"])
         .current_dir(repo)
-        .output()
-        .expect("Failed to execute command");
-
-    if output.status.success() {
-        let stdout = String::from_utf8_lossy(&output.stdout);
-        println!("{}", stdout);
-    } 
-    else {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        println!("{}", stderr);
-    }
+        .output();
 
     // Push
     let output = Command::new("cmd")
         .args(&["/C", "git push"])
         .current_dir(repo)
-        .output()
-        .expect("Failed to execute command");
-
-    if output.status.success() {
-        let stdout = String::from_utf8_lossy(&output.stdout);
-        println!("{}", stdout);
-    } 
-    else {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        println!("{}", stderr);
-    }
+        .output();
 }
