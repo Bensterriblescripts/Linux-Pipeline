@@ -7,7 +7,7 @@ fn main() {
 
     let repositories: [&str; 2] = ["Linux-Pipeline", "CoffeeOrders-Website"];
 
-    println!("1: Push\n2: Pull\n3: Initiate Repositories\n");
+    println!("1: Push\n2: Pull\n");
     io::stdin().read_line(&mut input).expect("Failed to read line");
 
     if input.trim() == "1" {
@@ -52,7 +52,7 @@ fn pull(basedir: &str, repositories: [&str; 2]) {
 
         let output = Command::new("cmd")
             .args(&["git pull"])
-            .current_dir(repo)
+            .current_dir(&dir)
             .output();
     }
 }
