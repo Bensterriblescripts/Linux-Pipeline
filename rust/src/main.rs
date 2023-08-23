@@ -17,13 +17,12 @@ fn main() {
         pull(basedir, repositories);
     }
     else if input.trim() == "3" {
-        repair();
+        repair(repositories);
     }
     else if input.trim() == "4" {
         initiate(repositories);
     }
 }
-
 fn command(dir: &str, arg: &str) {
     let output = Command::new("cmd")
         .args(&["/C", arg])
@@ -40,7 +39,7 @@ fn command(dir: &str, arg: &str) {
     }
 }
 
-// Git Commands
+// Commands
 fn push(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
         let mut arg = "";
@@ -63,9 +62,9 @@ fn pull(basedir: &str, repositories: [&str; 3]) {
         command(repo, arg);
     }
 }
+fn repair(repositories: [&str; 3]) {
+    
+}
 fn initiate(repositories: [&str; 3]) {
 
-}
-fn repair() {
-    
 }
