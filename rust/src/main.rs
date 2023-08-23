@@ -6,7 +6,7 @@ fn main() {
     let basedir = "C:/Local/Repositories/";
     let mut input = String::new();
 
-    let repositories: [&str; 3] = ["Linux-Pipeline", "Website-CoffeeOrder", "Template-Projects"];
+    let repositories: [&str; 3] = ["Linux-Pipeline", "Website-CoffeeOrders", "Template-Projects"];
 
     println!("1: Push\n2: Pull\n3: Repair\n4: Initiate\n");
     io::stdin().read_line(&mut input).expect("Failed to read line");
@@ -18,7 +18,11 @@ fn main() {
         pull(basedir, repositories);
     }
     else if input.trim() == "3" {
-        repair(repositories);
+        println!("This will delete all locally stored repositories.\nAre you sure. (Y/N)");
+        io::stdin().read_line(&mut input).expect("Failed to read line");
+        if input.trim() == "y" || input.trim() == "Y" {
+            repair(basedir, repositories);
+        }
     }
     else if input.trim() == "4" {
         initiate(basedir, repositories);
@@ -71,14 +75,25 @@ fn pull(basedir: &str, repositories: [&str; 3]) {
         command(&dir, arg);
     }
 }
-fn repair(repositories: [&str; 3]) {
-    
+fn repair(dir: &str, repositories: [&str; 3]) {
+    for repo in repositories {
+        let rm = "rm -r ";
+        let arg = rm.to_string() + repo;
+        command(&dir, &arg);
+    }
+    initiate(dir, repositories);
 }
 fn initiate(dir: &str, repositories: [&str; 3]) {
-    let url = "https://github.com/Bensterriblescripts/Linux-Pipeline.git";
+    let url = "https://github.com/Bensterriblescripts/";
     let arg_start = "git clone ";
     // Check is repo exists
     for repo in repositories {
+        let newdir = dir.to_string() + repo;
+        let b: bool = Path::new(&newdir).is_dir();
+        if b {
+            continue;
+        }
+
         let arg = format!("{}{}{}.git", arg_start, url, repo);
         command(&dir, &arg);
     }
