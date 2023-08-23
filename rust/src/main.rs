@@ -6,7 +6,6 @@ fn main() {
     let mut input = String::new();
 
     let repositories: [&str; 2] = ["Linux-Pipeline", "CoffeeOrders-Website"];
-    let mut repo = basedir.to_string() + "Linux-Pipeline";
 
     println!("1: Push\n2: Pull\n3: Initiate Repositories\n");
     io::stdin().read_line(&mut input).expect("Failed to read line");
@@ -15,7 +14,7 @@ fn main() {
         push(basedir, repositories);
     }
     else if input.trim() == "2" {
-        pull(&repo);
+        pull(basedir, repositories);
     }
 }
 
@@ -46,10 +45,14 @@ fn push(basedir: &str, repositories: [&str; 2]) {
 
 }
 
-fn pull(repo: &str) {
+fn pull(basedir: &str, repositories: [&str; 2]) {
 
-    let output = Command::new("cmd")
-        .args(&["git pull"])
-        .current_dir(repo)
-        .output();
+    for repo in repositories {
+        let mut dir = basedir.to_string() + repo;
+
+        let output = Command::new("cmd")
+            .args(&["git pull"])
+            .current_dir(repo)
+            .output();
+    }
 }
