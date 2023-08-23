@@ -1,4 +1,5 @@
 use std::process::Command;
+use std::path::Path;
 use std::io;
 
 fn main() {
@@ -45,6 +46,11 @@ fn push(basedir: &str, repositories: [&str; 3]) {
         let mut arg = "";
         let mut dir = basedir.to_string() + repo;
 
+        let b: bool = Path::new(&dir).is_dir();
+        if !b {
+            continue;
+        }
+
         arg = "git add -A";
         command(&dir, arg);
 
@@ -57,7 +63,14 @@ fn push(basedir: &str, repositories: [&str; 3]) {
 }
 fn pull(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
+        let mut arg = "";
         let mut dir = basedir.to_string() + repo;
+
+        let b: bool = Path::new(&dir).is_dir();
+        if !b {
+            continue;
+        }
+
         let mut arg = "git pull";
         command(repo, arg);
     }
