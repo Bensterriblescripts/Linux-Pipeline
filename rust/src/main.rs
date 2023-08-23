@@ -7,7 +7,7 @@ fn main() {
 
     let repositories: [&str; 3] = ["Linux-Pipeline", "Website-CoffeeOrder", "Template-Projects"];
 
-    println!("1: Push\n2: Pull\n3: Repair\n4: Initiate");
+    println!("1: Push\n2: Pull\n3: Repair\n4: Initiate\n");
     io::stdin().read_line(&mut input).expect("Failed to read line");
 
     if input.trim() == "1" {
