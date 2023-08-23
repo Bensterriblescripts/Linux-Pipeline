@@ -21,7 +21,7 @@ fn main() {
         repair(repositories);
     }
     else if input.trim() == "4" {
-        initiate(repositories);
+        initiate(basedir, repositories);
     }
 }
 fn command(dir: &str, arg: &str) {
@@ -40,18 +40,16 @@ fn command(dir: &str, arg: &str) {
     }
 }
 
-// Commands
+// Options
 fn push(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
-        let mut arg = "";
-        let mut dir = basedir.to_string() + repo;
-
+        let dir = basedir.to_string() + repo;
         let b: bool = Path::new(&dir).is_dir();
         if !b {
             continue;
         }
 
-        arg = "git add -A";
+        let mut arg = "git add -A";
         command(&dir, arg);
 
         arg = "git commit -m 'Auto-Push'";
@@ -63,21 +61,25 @@ fn push(basedir: &str, repositories: [&str; 3]) {
 }
 fn pull(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
-        let mut arg = "";
-        let mut dir = basedir.to_string() + repo;
-
+        let dir = basedir.to_string() + repo;
         let b: bool = Path::new(&dir).is_dir();
         if !b {
             continue;
         }
-
-        let mut arg = "git pull";
-        command(repo, arg);
+        
+        let arg = "git pull";
+        command(&dir, arg);
     }
 }
 fn repair(repositories: [&str; 3]) {
     
 }
-fn initiate(repositories: [&str; 3]) {
-
+fn initiate(dir: &str, repositories: [&str; 3]) {
+    let url = "https://github.com/Bensterriblescripts/Linux-Pipeline.git";
+    let arg_start = "git clone ";
+    // Check is repo exists
+    for repo in repositories {
+        let arg = format!("{}{}{}.git", arg_start, url, repo);
+        command(&dir, &arg);
+    }
 }
