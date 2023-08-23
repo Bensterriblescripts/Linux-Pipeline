@@ -7,7 +7,7 @@ fn main() {
 
     let repositories: [&str; 3] = ["Linux-Pipeline", "Website-CoffeeOrder", "Template-Projects"];
 
-    println!("1: Push\n2: Pull");
+    println!("1: Push\n2: Pull\n3: Repair\n4: Initiate");
     io::stdin().read_line(&mut input).expect("Failed to read line");
 
     if input.trim() == "1" {
@@ -17,6 +17,9 @@ fn main() {
         pull(basedir, repositories);
     }
     else if input.trim() == "3" {
+        repair();
+    }
+    else if input.trim() == "4" {
         initiate(repositories);
     }
 }
@@ -62,4 +65,7 @@ fn pull(basedir: &str, repositories: [&str; 3]) {
 }
 fn initiate(repositories: [&str; 3]) {
 
+}
+fn repair() {
+    
 }
