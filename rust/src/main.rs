@@ -23,17 +23,7 @@ fn pull(repo: &str) {
     let output = Command::new("cmd")
         .args(&["git pull"])
         .current_dir(repo)
-        .output()
-        .expect("Failed to execute command");
-
-    if output.status.success() {
-        let stdout = String::from_utf8_lossy(&output.stdout);
-        println!("{}", stdout);
-    } 
-    else {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        println!("{}", stderr);
-    }
+        .output();
 }
 
 fn push(repo: &str) {
