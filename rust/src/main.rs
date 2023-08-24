@@ -77,6 +77,11 @@ fn pull(basedir: &str, repositories: [&str; 3]) {
     }
 }
 fn repair(dir: &str, repositories: [&str; 3]) {
+
+    // Create a backup
+    // Move repositories over then initiate
+    // xcopy 'C:\Local\Repositories\backup\' 'C:\Local' /s /y /d
+
     for repo in repositories {
         let rm = "rm -r ";
         let arg = rm.to_string() + repo;
