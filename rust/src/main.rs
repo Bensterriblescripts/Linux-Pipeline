@@ -36,11 +36,11 @@ fn command(dir: &str, arg: &str) {
         .expect("Failed to run pull command");
     if output.status.success() {
         let stdout = String::from_utf8_lossy(&output.stdout);
-        println!("{}", stdout);
+        println!("Command successful, {}", stdout);
     } 
     else {
         let stderr = String::from_utf8_lossy(&output.stderr);
-        println!("{}", stderr);
+        println!("Command failed, {}", stderr);
     }
 }
 
