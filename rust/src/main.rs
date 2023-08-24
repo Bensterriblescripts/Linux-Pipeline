@@ -44,7 +44,7 @@ fn command(dir: &str, arg: &str) {
     }
 }
 
-// Options
+// Commands
 fn push(basedir: &str, repositories: [&str; 3]) {
     for repo in repositories {
         let dir = basedir.to_string() + repo;
