@@ -81,19 +81,16 @@ fn repair(dir: &str, repositories: [&str; 3]) {
         let arg = rm.to_string() + repo;
         command(&dir, &arg);
     }
-    initiate(dir, repositories);
 }
 fn initiate(dir: &str, repositories: [&str; 3]) {
     let url = "https://github.com/Bensterriblescripts/";
     let arg_start = "git clone ";
-    // Check is repo exists
     for repo in repositories {
         let newdir = dir.to_string() + repo;
         let b: bool = Path::new(&newdir).is_dir();
         if b {
             continue;
         }
-
         let arg = format!("{}{}{}.git", arg_start, url, repo);
         command(&dir, &arg);
     }
