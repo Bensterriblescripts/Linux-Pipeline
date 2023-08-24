@@ -29,6 +29,7 @@ fn main() {
     }
 }
 fn command(dir: &str, arg: &str) {
+    println!("\n");
     let output = Command::new("cmd")
         .args(&["/C", arg])
         .current_dir(&dir)
